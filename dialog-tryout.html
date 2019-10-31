@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Dialog Tryout</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        button:focus {
+            outline: 0;
+        }
+
+        .ui-dialog-titlebar {
+            display: none;
+        }
+
+        .ui-widget.ui-widget-content {
+            border: none;
+        }
+
+        .ui-dialog .ui-dialog-buttonpane {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ui-dialog-buttonset {
+            margin-right: -5px;
+            white-space: nowrap;
+        }
+
+        .ui-dialog .ui-dialog-buttonpane button {
+            border-width: 10px;
+            padding: 0 10px;
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+            font-size: 0.8em;
+            line-height: 22px;
+            border-style: solid;
+            border-image-source: url(img/border-image-golden2.png);
+            border-image-repeat: repeat;
+            border-image-slice: 8 8 8 8;
+            border-image-width: 18px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background: url(img/background-image-golden2.png) repeat repeat;
+            background-clip: padding-box;
+            background-origin: padding-box;
+            background-position: center;
+        }
+
+        #dialog1, #dialog2, #dialog3, #dialog4, #dialog5 {
+            display: none;
+            border-width: 15px;
+            padding: 12px;
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+            font-size: 0.8em;
+            line-height: 22px;
+            border-style: solid;
+            border-image-source: url(img/border-image-golden2.png);
+            border-image-repeat: repeat;
+            border-image-slice: 8 8 8 8;
+            border-image-width: 18px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background: url(img/background-image-golden2.png) repeat repeat;
+            background-clip: padding-box;
+            background-origin: padding-box;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+<button id="click-button1">Will you help?</button>
+<button id="click-button2">Pick up sword?</button>
+<button id="click-button3">Eat mushroom?</button>
+<button id="click-button4">Attack</button>
+<button id="click-button5">Keep or return?</button>
+
+<div id="dialog1">
+    <p>So, what do you say? Will you help your kingdom one last time?</p>
+</div>
+
+<div id="dialog2">
+    <p>Wow, a magic sword... It could help us defeat the enemy! Or it could be cursed...</p>
+</div>
+
+<div id="dialog3">
+    <p>A mushroom! You are feeling a bit sluggish...</p>
+</div>
+
+<div id="dialog4">
+    <p>Which attack do you want to use?</p>
+</div>
+
+<div id="dialog5">
+    <p>You got the gold back. Let's return it! Or... keep it for ourselves?</p>
+</div>
+
+<script>
+
+    $("#click-button1").click(function () {
+        $("#dialog1").css("display", "block");
+
+        $(function() {
+            $("#dialog1").dialog({
+                buttons: [
+                    {
+                        text: "Yes",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Yes");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // startSpel();
+                        }
+                    },
+                    {
+                        text: "No",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("No");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // rollMiddleFingerCredits();
+                        }
+                    },
+                ]
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        });
+    });
+
+    $("#click-button2").click(function () {
+        $("#dialog2").css("display", "block");
+
+        $(function() {
+            $("#dialog2").dialog({
+                buttons: [
+                    {
+                        text: "Take the risk",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Take the risk");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // grabSword();
+                        }
+                    },
+                    {
+                        text: "I'll skip",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("I'll skip");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // skipSword();
+                        }
+                    },
+                ]
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        });
+    });
+
+    $("#click-button3").click(function () {
+        $("#dialog3").css("display", "block");
+
+        $(function() {
+            $("#dialog3").dialog({
+                buttons: [
+                    {
+                        text: "Eat it!",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Eat it!");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // eatMushroom();
+                        }
+                    },
+                    {
+                        text: "I hate mushrooms",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("I hate mushrooms");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // noEatMushroom();
+                        }
+                    },
+                ]
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        });
+    });
+
+    $("#click-button4").click(function () {
+        $("#dialog4").css("display", "block");
+
+        $(function() {
+            $("#dialog4").dialog({
+                buttons: [
+                    {
+                        text: "Use sword",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Use sword");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attackSword();
+                        }
+                    },
+                    {
+                        text: "Slap him",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Slap him");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attackSlap();
+                        }
+                    },
+                    {
+                        text: "Scream at him",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Scream at him");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attackScream();
+                        }
+                    },
+                ]
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        });
+    });
+
+    $("#click-button5").click(function () {
+        $("#dialog5").css("display", "block");
+
+        $(function() {
+            $("#dialog5").dialog({
+                buttons: [
+                    {
+                        text: "Return, duh",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("Return, duh");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // returnGold();
+                        }
+                    },
+                    {
+                        text: "I could use it...",
+                        click: function() { // Er wordt geklikt/keuze gemaakt
+                            console.log("I could use it...");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // keepGold();
+                        }
+                    },
+                ]
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        });
+    });
+
+</script>
+
+</body>
+</html>
