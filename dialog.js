@@ -1,7 +1,34 @@
+// Dit is puur voor onszelf om bij te kunnen houden wat de positie is (met verticale scroll)
 $(window).scroll(function() {
     const currentHeight = $(window).scrollTop();
     console.log(currentHeight);
 });
+
+// Zelfde maar dan voor horizontale scroll
+$(window).scroll(function() {
+    const currentHeight = $(window).scrollLeft();
+    console.log(currentHeight);
+});
+
+// Deze moeten nog aangepast worden o.b.v. functie hierboven
+const scrollPositionDialog1 = 0;
+const scrollPositionDialog2 = 0;
+const scrollPositionDialog3 = 0;
+const scrollPositionDialog4 = 0;
+const scrollPositionDialog5 = 0;
+
+var $height = $(window).scrollTop();
+// if ($height === scrollPositionDialog1) {
+//     $("#dialog1").dialog("open");
+// } else if ($height === scrollPositionDialog2) {
+//     $("#dialog2").dialog("open");
+// } else if ($height === scrollPositionDialog3) {
+//     $("#dialog3").dialog("open");
+// } else if ($height === scrollPositionDialog4) {
+//     $("#dialog4").dialog("open");
+// } else if ($height === scrollPositionDialog5) {
+//     $("#dialog5").dialog("open");
+// }
 
 $("#click-button1").click(function () {
     $("#dialog1").dialog({
