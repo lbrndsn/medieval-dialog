@@ -1,59 +1,46 @@
 // Dit is puur voor onszelf om bij te kunnen houden wat de positie is (met verticale scroll)
-$(window).scroll(function() {
-    const currentHeight = $(window).scrollTop();
-    console.log(currentHeight);
-});
-
-// Zelfde maar dan voor horizontale scroll
-$(window).scroll(function() {
-    const currentHeight = $(window).scrollLeft();
-    console.log(currentHeight);
-});
+// $(window).scroll(function() {
+//     const currentHeight = $(window).scrollTop();
+//     console.log("Vertical: " + currentHeight);
+// });
+//
+// // Zelfde maar dan voor horizontale scroll
+// $(window).scroll(function() {
+//     const currentHeight = $(window).scrollLeft();
+//     console.log("Horizontal: " + currentHeight);
+// });
 
 // Deze moeten nog aangepast worden o.b.v. functie hierboven (handmatig)
-const scrollPositionDialog1 = 0;
+const scrollPositionDialog1 = 200;
 const scrollPositionDialog2 = 0;
 const scrollPositionDialog3 = 0;
 const scrollPositionDialog4 = 0;
 const scrollPositionDialog5 = 0;
 
-var $height = $(window).scrollTop();
-// if ($height === scrollPositionDialog1) {
-//     $("#dialog1").dialog("open");
-// } else if ($height === scrollPositionDialog2) {
-//     $("#dialog2").dialog("open");
-// } else if ($height === scrollPositionDialog3) {
-//     $("#dialog3").dialog("open");
-// } else if ($height === scrollPositionDialog4) {
-//     $("#dialog4").dialog("open");
-// } else if ($height === scrollPositionDialog5) {
-//     $("#dialog5").dialog("open");
-// }
-
-$("#click-button1").click(function () {
-    $("#dialog1").dialog({
-        buttons: [
-            {
-                text: "Yes",
-                click: function () { // Er wordt geklikt/keuze gemaakt
-                    console.log("Yes");
-                    $(this).dialog("close"); // Pop up gaat weg
-                    // startSpel();
-                }
-            },
-            {
-                text: "No",
-                click: function () { // Er wordt geklikt/keuze gemaakt
-                    console.log("No");
-                    $(this).dialog("close"); // Pop up gaat weg
-                    // rollMiddleFingerCredits();
-                }
-            },
-        ],
-        open: disableBodyScrolling,
-        close: enableBodyScrolling
-    }).dialog("widget").find(".ui-dialog-title").hide();
-});
+// $("#click-button1").click(function () {
+//     $("#dialog1").dialog({
+//         buttons: [
+//             {
+//                 text: "Yes",
+//                 click: function () { // Er wordt geklikt/keuze gemaakt
+//                     console.log("Yes");
+//                     $(this).dialog("close"); // Pop up gaat weg
+//                     // startSpel();
+//                 }
+//             },
+//             {
+//                 text: "No",
+//                 click: function () { // Er wordt geklikt/keuze gemaakt
+//                     console.log("No");
+//                     $(this).dialog("close"); // Pop up gaat weg
+//                     // rollMiddleFingerCredits();
+//                 }
+//             },
+//         ],
+//         open: disableBodyScrolling,
+//         close: enableBodyScrolling
+//     }).dialog("widget").find(".ui-dialog-title").hide();
+// });
 
 $("#click-button2").click(function () {
     $("#dialog2").dialog({
@@ -164,17 +151,72 @@ $("#click-button5").click(function () {
 });
 
 function disableBodyScrolling() {
-    $('html, body').css({
-        overflow: 'hidden',
-        height: '100%',
-        width: '100%'
+    $('#disableScrollDiv').css({
+        display: "block"
+    });
+
+    $('body').css({
+        overflow: "hidden"
     });
 }
 
+// Deze width en height nog veranderen naar auto
 function enableBodyScrolling() {
-    $('html, body').css({
-        overflow: 'auto',
-        height: 'auto',
-        width: 'auto'
+    $('#disableScrollDiv').css({
+        display: "hidden"
+    });
+
+    $('body').css({
+        overflow: "auto"
     });
 }
+
+function checkScrollPosition(heightOrWidth) {
+    console.log(heightOrWidth);
+    if (heightOrWidth > scrollPositionDialog1 - 10 && heightOrWidth < scrollPositionDialog1 + 10) {
+        $("#dialog1").dialog({
+            buttons: [
+                {
+                    text: "Yes",
+                    click: function () { // Er wordt geklikt/keuze gemaakt
+                        console.log("Yes");
+                        $(this).dialog("close"); // Pop up gaat weg
+                        // startSpel();
+                    }
+                },
+                {
+                    text: "No",
+                    click: function () { // Er wordt geklikt/keuze gemaakt
+                        console.log("No");
+                        $(this).dialog("close"); // Pop up gaat weg
+                        // rollMiddleFingerCredits();
+                    }
+                },
+            ],
+            open: disableBodyScrolling,
+            close: enableBodyScrolling
+        }).dialog("widget").find(".ui-dialog-title").hide();
+    }
+}
+
+// } else if ($height === scrollPositionDialog2) {
+//     $("#dialog2").dialog("open");
+// } else if ($height === scrollPositionDialog3) {
+//     $("#dialog3").dialog("open");
+// } else if ($height === scrollPositionDialog4) {
+//     $("#dialog4").dialog("open");
+// } else if ($height === scrollPositionDialog5) {
+//     $("#dialog5").dialog("open");
+// }
+
+// Deze voor verticale scroll pagina's
+$(window).scroll(function() {
+    const currentHeight = $(window).scrollTop();
+    checkScrollPosition(currentHeight);
+});
+
+// Deze voor horizontale scrollpagina
+$(window).scroll(function() {
+    const currentWidth = $(window).scrollLeft();
+    checkScrollPosition(currentWidth);
+});
