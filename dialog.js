@@ -1,3 +1,8 @@
+$(window).scroll(function() {
+    const currentHeight = $(window).scrollTop();
+    console.log(currentHeight);
+});
+
 $("#click-button1").click(function () {
     $("#dialog1").dialog({
         buttons: [
