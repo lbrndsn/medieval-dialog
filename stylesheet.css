@@ -11,8 +11,8 @@
 
 /* width en height nog veranderen naar auto */
 body {
-    width: 1200px;
-    height: 1200px;
+    width: 5000px;
+    height: 5000px;
     overflow: scroll;
 }
 
