@@ -10,7 +10,7 @@ $(window).scroll(function() {
     console.log(currentHeight);
 });
 
-// Deze moeten nog aangepast worden o.b.v. functie hierboven
+// Deze moeten nog aangepast worden o.b.v. functie hierboven (handmatig)
 const scrollPositionDialog1 = 0;
 const scrollPositionDialog2 = 0;
 const scrollPositionDialog3 = 0;
@@ -49,7 +49,9 @@ $("#click-button1").click(function () {
                     // rollMiddleFingerCredits();
                 }
             },
-        ]
+        ],
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
 });
 
@@ -72,7 +74,9 @@ $("#click-button2").click(function () {
                     // skipSword();
                 }
             },
-        ]
+        ],
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
 });
 
@@ -95,7 +99,9 @@ $("#click-button3").click(function () {
                     // noEatMushroom();
                 }
             },
-        ]
+        ],
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
 });
 
@@ -126,7 +132,9 @@ $("#click-button4").click(function () {
                     // attackScream();
                 }
             },
-        ]
+        ],
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
 });
 
@@ -149,6 +157,24 @@ $("#click-button5").click(function () {
                     // keepGold();
                 }
             },
-        ]
+        ],
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
 });
+
+function disableBodyScrolling() {
+    $('html, body').css({
+        overflow: 'hidden',
+        height: '100%',
+        width: '100%'
+    });
+}
+
+function enableBodyScrolling() {
+    $('html, body').css({
+        overflow: 'auto',
+        height: 'auto',
+        width: 'auto'
+    });
+}
