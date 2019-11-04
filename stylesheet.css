@@ -1,0 +1,73 @@
+button:focus {
+    outline: 0;
+}
+
+.ui-dialog-titlebar {
+    display: none;
+}
+
+.ui-widget.ui-widget-content {
+    border: none;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-dialog-buttonset {
+    margin-right: -5px;
+    white-space: nowrap;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    border-width: 10px;
+    padding: 0 10px;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 0.8em;
+    line-height: 22px;
+    border-style: solid;
+    border-image-source: url(img/border-image-golden2.png);
+    border-image-repeat: repeat;
+    border-image-slice: 8 8 8 8;
+    border-image-width: 18px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: url(img/background-image-golden2.png) repeat repeat;
+    background-clip: padding-box;
+    background-origin: padding-box;
+    background-position: center;
+}
+
+#dialog1, #dialog2, #dialog3, #dialog4, #dialog5 {
+    display: none;
+    border-width: 15px;
+    padding: 12px;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 0.8em;
+    line-height: 22px;
+    border-style: solid;
+    border-image-source: url(img/border-image-golden2.png);
+    border-image-repeat: repeat;
+    border-image-slice: 8 8 8 8;
+    border-image-width: 18px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: url(img/background-image-golden2.png) repeat repeat;
+    background-clip: padding-box;
+    background-origin: padding-box;
+    background-position: center;
+}
