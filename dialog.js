@@ -1,4 +1,4 @@
-// Deze moeten nog aangepast worden o.b.v. functie hierboven (handmatig)
+// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig, nog console.log toevoegen daar)
 const scrollPositionDialog1 = 200;
 const scrollPositionDialog2 = 400;
 const scrollPositionDialog3 = 600;
@@ -44,8 +44,17 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
 
                         // start game
-                        // TODO fade to black screen
-                        // TODO open page 2
+                        // fade to black screen
+                        $(document).ready(function() {
+                            $('#overlay').animate({
+                                opacity: 1,
+                            }, 4000, function() {
+                            });
+                        });
+                        // open page 2
+                        window.setTimeout(function(){
+                            window.location.href = "https://www.google.com/"; // TODO link to pg. 2
+                        }, 5000);
                     }
                 },
                 {
