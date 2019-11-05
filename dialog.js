@@ -127,7 +127,9 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Use sword");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // attackSword();
+                        // attack sword
+                        // TODO add attack visual
+                        // TODO change health bar -15
                     }
                 },
                 {
@@ -135,7 +137,9 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Slap him");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // attackSlap();
+                        // attack slap
+                        // TODO add attack visual
+                        // TODO change health bar -10
                     }
                 },
                 {
@@ -143,7 +147,9 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Scream at him");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // attackScream();
+                        // attack scream
+                        // TODO add sadness visual
+                        // TODO change health bar -5
                     }
                 },
             ],
