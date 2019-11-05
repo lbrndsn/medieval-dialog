@@ -95,6 +95,16 @@ function checkScrollPosition(heightOrWidth) {
                         // grab sword
                         // TODO open dialog: "oh no, the sword is cursed etc..."
                         // TODO add one "ok" button (or smth like that)
+                        $("#dialogGrabSword").dialog({
+                            buttons: [
+                                {
+                                    text: "Well, that sucks",
+                                    click: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            ]
+                        })
                     }
                 },
                 {
