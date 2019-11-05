@@ -186,7 +186,17 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
 
                         // return gold
-                        // TODO open credits page with confetti or something
+                        // fade to black screen
+                        $(document).ready(function() {
+                            $('#overlay').animate({
+                                opacity: 1,
+                            }, 4000, function() {
+                            });
+                        });
+                        // open credits page
+                        window.setTimeout(function(){
+                            window.location.href = "https://www.google.com/"; // TODO link to happy credits page
+                        }, 5000);
                     }
                 },
                 {
@@ -197,7 +207,18 @@ function checkScrollPosition(heightOrWidth) {
 
                         // keep gold
                         // TODO fade hero into enemy
-                        // TODO open credits page with sad music or something
+
+                        // fade to black screen
+                        $(document).ready(function() {
+                            $('#overlay').animate({
+                                opacity: 1,
+                            }, 4000, function() {
+                            });
+                        });
+                        // open credits page
+                        window.setTimeout(function(){
+                            window.location.href = "https://www.google.com/"; // TODO link to sad credits page
+                        }, 5000);
                     }
                 },
             ],
