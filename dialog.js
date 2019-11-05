@@ -43,7 +43,7 @@ function checkScrollPosition(heightOrWidth) {
                         console.log("Yes");
                         $(this).dialog("close"); // Pop up gaat weg
 
-                        // start game
+                        // "start game"
                         // fade to black screen
                         $(document).ready(function() {
                             $('#overlay').animate({
@@ -63,9 +63,18 @@ function checkScrollPosition(heightOrWidth) {
                         console.log("No");
                         $(this).dialog("close"); // Pop up gaat weg
 
-                        // roll credits
-                        // TODO fade to black screen
-                        // TODO open credits page
+                        // "roll credits"
+                        // fade to black screen
+                        $(document).ready(function() {
+                            $('#overlay').animate({
+                                opacity: 1,
+                            }, 4000, function() {
+                            });
+                        });
+                        // open credits page
+                        window.setTimeout(function(){
+                            window.location.href = "https://www.google.com/"; // TODO link to credits page
+                        }, 5000);
                     }
                 },
             ],
