@@ -93,8 +93,6 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
 
                         // grab sword
-                        // TODO open dialog: "oh no, the sword is cursed etc..."
-                        // TODO add one "ok" button (or smth like that)
                         $("#dialogGrabSword").dialog({
                             buttons: [
                                 {
@@ -130,8 +128,16 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
 
                         // eat mushroom
-                        // TODO open dialog: "wow, gave u extra strength" or whateva
-                        // TODO add one "ok" button
+                        $("#dialogEatMushroom").dialog({
+                            buttons: [
+                                {
+                                    text: "Trippy",
+                                    click: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            ]
+                        })
                     }
                 },
                 {
