@@ -42,7 +42,10 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Yes");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // startSpel();
+
+                        // start game
+                        // TODO fade to black screen
+                        // TODO open page 2
                     }
                 },
                 {
@@ -50,7 +53,10 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("No");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // rollMiddleFingerCredits();
+
+                        // roll credits
+                        // TODO fade to black screen
+                        // TODO open credits page
                     }
                 },
             ],
@@ -67,7 +73,10 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Take the risk");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // grabSword();
+
+                        // grab sword
+                        // TODO open dialog: "oh no, the sword is cursed etc..."
+                        // TODO add one "ok" button (or smth like that)
                     }
                 },
                 {
@@ -75,7 +84,6 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("I'll skip");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // skipSword();
                     }
                 },
             ],
@@ -92,7 +100,10 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Eat it!");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // eatMushroom();
+
+                        // eat mushroom
+                        // TODO open dialog: "wow, gave u extra strength" or whateva
+                        // TODO add one "ok" button
                     }
                 },
                 {
@@ -100,7 +111,6 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("I hate mushrooms");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // noEatMushroom();
                     }
                 },
             ],
@@ -150,7 +160,9 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("Return, duh");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // returnGold();
+
+                        // return gold
+                        // TODO open credits page with confetti or something
                     }
                 },
                 {
@@ -158,7 +170,10 @@ function checkScrollPosition(heightOrWidth) {
                     click: function () { // Er wordt geklikt/keuze gemaakt
                         console.log("I could use it...");
                         $(this).dialog("close"); // Pop up gaat weg
-                        // keepGold();
+
+                        // keep gold
+                        // TODO fade hero into enemy
+                        // TODO open credits page with sad music or something
                     }
                 },
             ],
