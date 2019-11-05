@@ -77,7 +77,7 @@ button:focus {
     background-position: center;
 }
 
-#dialog1, #dialog2, #dialog3, #dialog4, #dialog5, #dialogGrabSword {
+#dialog1, #dialog2, #dialog3, #dialog4, #dialog5, #dialogGrabSword, #dialogEatMushroom {
     display: none;
     border-width: 15px;
     padding: 12px;
