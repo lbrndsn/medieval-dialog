@@ -32,6 +32,11 @@ function enableBodyScrolling() {
     });
 }
 
+// Get random integer for amount of damage
+function getRandomInt() {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
 function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
     if (heightOrWidth > scrollPositionDialog1 - 10 && heightOrWidth < scrollPositionDialog1 + 10 && dialog1HasBeenOpened === false) {
@@ -154,43 +159,47 @@ function checkScrollPosition(heightOrWidth) {
 
         dialog3HasBeenOpened = true;
     } else if (heightOrWidth > scrollPositionDialog4 - 10 && heightOrWidth < scrollPositionDialog4 + 10 && dialog4HasBeenOpened === false) {
-        $("#dialog4").dialog({
-            buttons: [
-                {
-                    text: "Use sword",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
-                        console.log("Use sword");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack sword
-                        // TODO add attack visual
-                        // TODO change health bar -15
-                    }
-                },
-                {
-                    text: "Slap him",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
-                        console.log("Slap him");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack slap
-                        // TODO add attack visual
-                        // TODO change health bar -10
-                    }
-                },
-                {
-                    text: "Scream at him",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
-                        console.log("Scream at him");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack scream
-                        // TODO add sadness visual
-                        // TODO change health bar -5
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
+        while (healthBarHero > 0 || healthBarEnemy > 0) {
+            $("#dialog4").dialog({
+                buttons: [
+                    {
+                        text: "Use sword",
+                        click: function () { // Er wordt geklikt/keuze gemaakt
+                            console.log("Use sword");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attack sword
+                            // TODO add attack visual for 1.5/2 sec
+                            // TODO change health bar (random)
+                            $("#dialog4").dialog("open");
+                        }
+                    },
+                    {
+                        text: "Slap him",
+                        click: function () { // Er wordt geklikt/keuze gemaakt
+                            console.log("Slap him");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attack slap
+                            // TODO add attack visual for 1.5/2 sec
+                            // TODO change health bar (random)
+                            $("#dialog4").dialog("open");
+                        }
+                    },
+                    {
+                        text: "Scream at him",
+                        click: function () { // Er wordt geklikt/keuze gemaakt
+                            console.log("Scream at him");
+                            $(this).dialog("close"); // Pop up gaat weg
+                            // attack scream
+                            // TODO add sadness visual for 1.5/2 sec
+                            // TODO change health bar (random)
+                            $("#dialog4").dialog("open");
+                        }
+                    },
+                ],
+                open: disableBodyScrolling,
+                close: enableBodyScrolling
+            }).dialog("widget").find(".ui-dialog-title").hide();
+        }
         dialog4HasBeenOpened = true;
     } else if (heightOrWidth > scrollPositionDialog5 - 10 && heightOrWidth < scrollPositionDialog5 + 10 && dialog5HasBeenOpened === false) {
         $("#dialog5").dialog({
