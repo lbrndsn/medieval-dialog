@@ -176,7 +176,7 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
                         // attack sword
                         // TODO add attack visual for 1.5/2 sec
-                        // TODO change health bar (random)
+                        // change health bar (random)
                         let randomInt = getRandomInt();
                         console.log("Random integer before = " + randomInt);
                         if (mushroomEaten) {
@@ -187,7 +187,7 @@ function checkScrollPosition(heightOrWidth) {
                         console.log("Health bar enemy = " + healthBarEnemy);
                         setTimeout(function () {
                             $("#dialog4").dialog("open");
-                        })
+                        }, 2000)
                     }
                 },
                 {
