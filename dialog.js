@@ -32,9 +32,14 @@ function enableBodyScrolling() {
     });
 }
 
+let healthBarHero = 100;
+let healthBarEnemy = 100;
+const mathMax = 31;
+const mathMin = 5;
+
 // Get random integer for amount of damage
 function getRandomInt() {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (mathMax - mathMin) + mathMin);
 }
 
 function checkScrollPosition(heightOrWidth) {
@@ -50,16 +55,16 @@ function checkScrollPosition(heightOrWidth) {
 
                         // "start game"
                         // fade to black screen
-                        $(document).ready(function() {
-                            $('#overlay').animate({
-                                opacity: 1,
-                            }, 4000, function() {
-                            });
-                        });
-                        // open page 2
-                        window.setTimeout(function(){
-                            window.location.href = "https://www.google.com/"; // TODO link to pg. 2
-                        }, 5000);
+                        // $(document).ready(function () {
+                        //     $('#overlay').animate({
+                        //         opacity: 1,
+                        //     }, 4000, function () {
+                        //     });
+                        // });
+                        // // open page 2
+                        // window.setTimeout(function () {
+                        //     window.location.href = "https://www.google.com/"; // TODO link to pg. 2
+                        // }, 5000);
                     }
                 },
                 {
@@ -70,14 +75,14 @@ function checkScrollPosition(heightOrWidth) {
 
                         // "roll credits"
                         // fade to black screen
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
-                            }, 4000, function() {
+                            }, 4000, function () {
                             });
                         });
                         // open credits page
-                        window.setTimeout(function(){
+                        window.setTimeout(function () {
                             window.location.href = "https://www.google.com/"; // TODO link to credits page
                         }, 5000);
                     }
@@ -136,7 +141,7 @@ function checkScrollPosition(heightOrWidth) {
                         $("#dialogEatMushroom").dialog({
                             buttons: [
                                 {
-                                    text: "Trippy",
+                                    text: "Trippy!",
                                     click: function () {
                                         $(this).dialog("close");
                                     }
@@ -159,47 +164,57 @@ function checkScrollPosition(heightOrWidth) {
 
         dialog3HasBeenOpened = true;
     } else if (heightOrWidth > scrollPositionDialog4 - 10 && heightOrWidth < scrollPositionDialog4 + 10 && dialog4HasBeenOpened === false) {
-        while (healthBarHero > 0 || healthBarEnemy > 0) {
-            $("#dialog4").dialog({
-                buttons: [
-                    {
-                        text: "Use sword",
-                        click: function () { // Er wordt geklikt/keuze gemaakt
-                            console.log("Use sword");
-                            $(this).dialog("close"); // Pop up gaat weg
-                            // attack sword
-                            // TODO add attack visual for 1.5/2 sec
-                            // TODO change health bar (random)
+        $("#dialog4").dialog({
+            buttons: [
+                {
+                    text: "Use sword",
+                    click: function () { // Er wordt geklikt/keuze gemaakt
+                        console.log("Starting health = " + healthBarEnemy);
+                        console.log("Use sword");
+                        $(this).dialog("close"); // Pop up gaat weg
+                        // attack sword
+                        // TODO add attack visual for 1.5/2 sec
+                        // TODO change health bar (random)
+                        const randomInt = getRandomInt();
+                        healthBarEnemy = healthBarEnemy - randomInt;
+                        console.log("Random integer = " + randomInt);
+                        console.log("Health bar enemy = " + healthBarEnemy);
+                        setTimeout(function () {
                             $("#dialog4").dialog("open");
-                        }
-                    },
-                    {
-                        text: "Slap him",
-                        click: function () { // Er wordt geklikt/keuze gemaakt
-                            console.log("Slap him");
-                            $(this).dialog("close"); // Pop up gaat weg
-                            // attack slap
-                            // TODO add attack visual for 1.5/2 sec
-                            // TODO change health bar (random)
-                            $("#dialog4").dialog("open");
-                        }
-                    },
-                    {
-                        text: "Scream at him",
-                        click: function () { // Er wordt geklikt/keuze gemaakt
-                            console.log("Scream at him");
-                            $(this).dialog("close"); // Pop up gaat weg
-                            // attack scream
-                            // TODO add sadness visual for 1.5/2 sec
-                            // TODO change health bar (random)
-                            $("#dialog4").dialog("open");
-                        }
-                    },
-                ],
-                open: disableBodyScrolling,
-                close: enableBodyScrolling
-            }).dialog("widget").find(".ui-dialog-title").hide();
-        }
+                        })
+                    }
+                },
+                {
+                    text: "Slap him",
+                    click: function () { // Er wordt geklikt/keuze gemaakt
+                        console.log("Slap him");
+                        $(this).dialog("close"); // Pop up gaat weg
+                        // attack slap
+                        // TODO add attack visual for 1.5/2 sec
+                        // TODO change health bar (random)
+                        healthBarEnemy = healthBarEnemy - getRandomInt();
+                        console.log("Health bar enemy = " + healthBarEnemy);
+                        $("#dialog4").dialog("open");
+                    }
+                },
+                {
+                    text: "Scream at him",
+                    click: function () { // Er wordt geklikt/keuze gemaakt
+                        console.log("Scream at him");
+                        $(this).dialog("close"); // Pop up gaat weg
+                        // attack scream
+                        // TODO add sadness visual for 1.5/2 sec
+                        // TODO change health bar (random)
+                        healthBarEnemy = healthBarEnemy - getRandomInt();
+                        console.log("Health bar enemy = " + healthBarEnemy);
+                        $("#dialog4").dialog("open");
+                    }
+                },
+            ],
+            open: disableBodyScrolling,
+            close: enableBodyScrolling
+        }).dialog("widget").find(".ui-dialog-title").hide();
+
         dialog4HasBeenOpened = true;
     } else if (heightOrWidth > scrollPositionDialog5 - 10 && heightOrWidth < scrollPositionDialog5 + 10 && dialog5HasBeenOpened === false) {
         $("#dialog5").dialog({
@@ -212,14 +227,14 @@ function checkScrollPosition(heightOrWidth) {
 
                         // return gold
                         // fade to black screen
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
-                            }, 4000, function() {
+                            }, 4000, function () {
                             });
                         });
                         // open credits page
-                        window.setTimeout(function(){
+                        window.setTimeout(function () {
                             window.location.href = "https://www.google.com/"; // TODO link to happy credits page
                         }, 5000);
                     }
@@ -234,14 +249,14 @@ function checkScrollPosition(heightOrWidth) {
                         // TODO fade hero into enemy
 
                         // fade to black screen
-                        $(document).ready(function() {
+                        $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
-                            }, 4000, function() {
+                            }, 4000, function () {
                             });
                         });
                         // open credits page
-                        window.setTimeout(function(){
+                        window.setTimeout(function () {
                             window.location.href = "https://www.google.com/"; // TODO link to sad credits page
                         }, 5000);
                     }
