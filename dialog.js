@@ -36,6 +36,7 @@ let healthBarHero = 100;
 let healthBarEnemy = 100;
 const mathMax = 31;
 const mathMin = 5;
+let mushroomEaten = false;
 
 // Get random integer for amount of damage
 function getRandomInt() {
@@ -138,6 +139,7 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
 
                         // eat mushroom
+                        mushroomEaten = true;
                         $("#dialogEatMushroom").dialog({
                             buttons: [
                                 {
@@ -175,7 +177,11 @@ function checkScrollPosition(heightOrWidth) {
                         // attack sword
                         // TODO add attack visual for 1.5/2 sec
                         // TODO change health bar (random)
-                        const randomInt = getRandomInt();
+                        let randomInt = getRandomInt();
+                        console.log("Random integer before = " + randomInt);
+                        if (mushroomEaten) {
+                            randomInt = Math.round(randomInt * 1.1);
+                        }
                         healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Random integer = " + randomInt);
                         console.log("Health bar enemy = " + healthBarEnemy);
