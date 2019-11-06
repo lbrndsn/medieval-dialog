@@ -171,19 +171,16 @@ function checkScrollPosition(heightOrWidth) {
                 {
                     text: "Use sword",
                     click: function () { // Er wordt geklikt/keuze gemaakt
-                        console.log("Starting health = " + healthBarEnemy);
                         console.log("Use sword");
                         $(this).dialog("close"); // Pop up gaat weg
                         // attack sword
                         // TODO add attack visual for 1.5/2 sec
                         // change health bar (random)
                         let randomInt = getRandomInt();
-                        console.log("Random integer before = " + randomInt);
                         if (mushroomEaten) {
                             randomInt = Math.round(randomInt * 1.1);
                         }
                         healthBarEnemy = healthBarEnemy - randomInt;
-                        console.log("Random integer = " + randomInt);
                         console.log("Health bar enemy = " + healthBarEnemy);
                         setTimeout(function () {
                             $("#dialog4").dialog("open");
@@ -197,10 +194,16 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close"); // Pop up gaat weg
                         // attack slap
                         // TODO add attack visual for 1.5/2 sec
-                        // TODO change health bar (random)
-                        healthBarEnemy = healthBarEnemy - getRandomInt();
+                        // change health bar (random)
+                        let randomInt = getRandomInt();
+                        if (mushroomEaten) {
+                            randomInt = Math.round(randomInt * 1.1);
+                        }
+                        healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Health bar enemy = " + healthBarEnemy);
-                        $("#dialog4").dialog("open");
+                        setTimeout(function () {
+                            $("#dialog4").dialog("open");
+                        }, 2000)
                     }
                 },
                 {
@@ -209,11 +212,17 @@ function checkScrollPosition(heightOrWidth) {
                         console.log("Scream at him");
                         $(this).dialog("close"); // Pop up gaat weg
                         // attack scream
-                        // TODO add sadness visual for 1.5/2 sec
-                        // TODO change health bar (random)
-                        healthBarEnemy = healthBarEnemy - getRandomInt();
+                        // TODO add attack visual for 1.5/2 sec
+                        // change health bar (random)
+                        let randomInt = getRandomInt();
+                        if (mushroomEaten) {
+                            randomInt = Math.round(randomInt * 1.1);
+                        }
+                        healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Health bar enemy = " + healthBarEnemy);
-                        $("#dialog4").dialog("open");
+                        setTimeout(function () {
+                            $("#dialog4").dialog("open");
+                        }, 2000)
                     }
                 },
             ],
