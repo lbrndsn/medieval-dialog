@@ -21,7 +21,6 @@ function disableBodyScrolling() {
     });
 }
 
-// Deze width en height nog veranderen naar auto
 function enableBodyScrolling() {
     $('#disableScrollDiv').css({
         display: "hidden"
@@ -37,6 +36,7 @@ let healthBarEnemy = 100;
 const mathMax = 31;
 const mathMin = 5;
 let mushroomEaten = false;
+let swordGrabbed = false;
 
 // Get random integer for amount of damage
 function getRandomInt() {
@@ -50,41 +50,37 @@ function checkScrollPosition(heightOrWidth) {
             buttons: [
                 {
                     text: "Yes",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Yes");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
 
-                        // "start game"
-                        // fade to black screen
                         // $(document).ready(function () {
                         //     $('#overlay').animate({
                         //         opacity: 1,
                         //     }, 4000, function () {
                         //     });
                         // });
-                        // // open page 2
+                        //
                         // window.setTimeout(function () {
-                        //     window.location.href = "https://www.google.com/"; // TODO link to pg. 2
+                        //     window.location.href = ""; // TODO link to pg. 2
                         // }, 5000);
                     }
                 },
                 {
                     text: "No",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("No");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
 
-                        // "roll credits"
-                        // fade to black screen
                         $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
                             }, 4000, function () {
                             });
                         });
-                        // open credits page
+
                         window.setTimeout(function () {
-                            window.location.href = "https://www.google.com/"; // TODO link to credits page
+                            window.location.href = ""; // TODO link to credits page
                         }, 5000);
                     }
                 },
@@ -99,11 +95,11 @@ function checkScrollPosition(heightOrWidth) {
             buttons: [
                 {
                     text: "Take the risk",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Take the risk");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        swordGrabbed = true;
+                        $(this).dialog("close");
 
-                        // grab sword
                         $("#dialogGrabSword").dialog({
                             buttons: [
                                 {
@@ -118,9 +114,9 @@ function checkScrollPosition(heightOrWidth) {
                 },
                 {
                     text: "I'll skip",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("I'll skip");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
                     }
                 },
             ],
@@ -170,59 +166,80 @@ function checkScrollPosition(heightOrWidth) {
             buttons: [
                 {
                     text: "Use sword",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Use sword");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack sword
+                        $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
+
                         // change health bar (random)
                         let randomInt = getRandomInt();
+                        if (swordGrabbed) {
+                            randomInt = Math.round(randomInt * 0.9);
+                        }
+
                         if (mushroomEaten) {
                             randomInt = Math.round(randomInt * 1.1);
                         }
                         healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Health bar enemy = " + healthBarEnemy);
-                        setTimeout(function () {
-                            $("#dialog4").dialog("open");
-                        }, 2000)
+
+                        if (healthBarEnemy > 0 || healthBarHero > 0) {
+                            setTimeout(function () {
+                                $("#dialog4").dialog("open");
+                            }, 2000)
+                        }
                     }
                 },
                 {
                     text: "Slap him",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Slap him");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack slap
+                        $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
+
                         // change health bar (random)
                         let randomInt = getRandomInt();
+                        if (swordGrabbed) {
+                            randomInt = Math.round(randomInt * 0.9);
+                        }
+
                         if (mushroomEaten) {
                             randomInt = Math.round(randomInt * 1.1);
                         }
                         healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Health bar enemy = " + healthBarEnemy);
-                        setTimeout(function () {
-                            $("#dialog4").dialog("open");
-                        }, 2000)
+
+                        if (healthBarEnemy > 0 || healthBarHero > 0) {
+                            setTimeout(function () {
+                                $("#dialog4").dialog("open");
+                            }, 2000)
+                        }
                     }
                 },
                 {
                     text: "Scream at him",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Scream at him");
-                        $(this).dialog("close"); // Pop up gaat weg
-                        // attack scream
+                        $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
+
                         // change health bar (random)
                         let randomInt = getRandomInt();
+                        if (swordGrabbed) {
+                            randomInt = Math.round(randomInt * 0.9);
+                        }
+
                         if (mushroomEaten) {
                             randomInt = Math.round(randomInt * 1.1);
                         }
                         healthBarEnemy = healthBarEnemy - randomInt;
                         console.log("Health bar enemy = " + healthBarEnemy);
-                        setTimeout(function () {
-                            $("#dialog4").dialog("open");
-                        }, 2000)
+
+                        if (healthBarEnemy > 0) {
+                            setTimeout(function () {
+                                $("#dialog4").dialog("open");
+                            }, 2000)
+                        }
                     }
                 },
             ],
