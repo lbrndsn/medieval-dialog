@@ -1,16 +1,3 @@
-// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig, nog console.log toevoegen daar)
-const scrollPositionDialog1 = 200;
-const scrollPositionDialog2 = 400;
-const scrollPositionDialog3 = 600;
-const scrollPositionDialog4 = 800;
-const scrollPositionDialog5 = 1000;
-
-let dialog1HasBeenOpened = false;
-let dialog2HasBeenOpened = false;
-let dialog3HasBeenOpened = false;
-let dialog4HasBeenOpened = false;
-let dialog5HasBeenOpened = false;
-
 function disableBodyScrolling() {
     $('#disableScrollDiv').css({
         display: "block"
@@ -43,252 +30,163 @@ function getRandomInt() {
     return Math.floor(Math.random() * (mathMax - mathMin) + mathMin);
 }
 
+function attack() {
+    // TODO add attack visual for 1.5/2 sec
+
+    let randomInt = getRandomInt();
+    if (swordGrabbed) {
+        randomInt = Math.round(randomInt * 0.9);
+    }
+
+    if (mushroomEaten) {
+        randomInt = Math.round(randomInt * 1.1);
+    }
+    healthBarEnemy = healthBarEnemy - randomInt;
+    console.log("Health bar enemy = " + healthBarEnemy);
+
+    if (healthBarEnemy > 0 && healthBarHero > 0) {
+        setTimeout(function () {
+            $("#dialog4").dialog("open");
+        }, 2000)
+    }
+}
+
+function fadePage() {
+    $(document).ready(function () {
+        $('#overlay').animate({
+            opacity: 1,
+        }, 4000, function () {
+        });
+    });
+}
+
+function goToPage(page) {
+    window.setTimeout(function () {
+        window.location.href = page;
+    }, 5000);
+}
+
+function createButton(text, click) {
+    return {
+        text: text,
+        click: function () {
+            $(this).dialog("close");
+            if (click) {
+                click();
+            }
+        }
+    }
+}
+
+const dialogsOpened = [];
+
+function createDialog(dialogId, dialogNumber, buttons) {
+    $("#" + dialogId).dialog({
+        buttons: buttons,
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
+    }).dialog("widget").find(".ui-dialog-title").hide();
+
+    dialogsOpened.push(dialogNumber);
+}
+
+// om te checken of een dialog geopened is kan je:
+function dialogHasBeenOpened(number) {
+    return dialogsOpened.includes(number);
+}
+
+const dialogOneButtons = [
+    createButton('Yes', function () {
+        // fadePage();
+        // goToPage(''); // todo
+    }),
+    createButton('No', function () {
+        fadePage();
+        goToPage("credits.html");
+    })
+];
+
+const dialogTwoButtons = [
+    createButton('Take the risk', function () {
+        swordGrabbed = true;
+        createDialog('dialogGrabSword', 2, [createButton('Well, that sucks')]);
+    }),
+    createButton("I'll skip")
+];
+
+const dialogThreeButtons = [
+    createButton('Eat it', function () {
+        mushroomEaten = true;
+        createDialog('dialogEatMushroom', 2, [createButton('Trippy!')]);
+    }),
+    createButton('I hate mushrooms')
+];
+
+const dialogFourButtons = [
+    createButton('Use sword', function () {
+        attack();
+    }),
+    createButton('Slap him', function () {
+        attack();
+    }),
+    createButton('Scream at him', function () {
+        attack();
+    })
+];
+
+const dialogFiveButtons = [
+    createButton('Return, duh', function () {
+        fadePage();
+        goToPage("credits.html");
+    }),
+    createButton('I could use it...', function () {
+        // todo turn into enemy
+        fadePage();
+        goToPage("credits.html");
+    })
+];
+
+// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig, nog console.log toevoegen daar)
+const dialogs = [
+    {
+        scrollPosition: 200,
+        id: 'dialog1',
+        number: 1,
+        buttons: dialogOneButtons
+    },
+    {
+        scrollPosition: 400,
+        id: 'dialog2',
+        number: 2,
+        buttons: dialogTwoButtons
+    },
+    {
+        scrollPosition: 600,
+        id: 'dialog3',
+        number: 3,
+        buttons: dialogThreeButtons
+    },
+    {
+        scrollPosition: 800,
+        id: 'dialog4',
+        number: 4,
+        buttons: dialogFourButtons
+    },
+    {
+        scrollPosition: 1000,
+        id: 'dialog5',
+        number: 5,
+        buttons: dialogFiveButtons
+    }
+];
+
 function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
-    if (heightOrWidth > scrollPositionDialog1 - 10 && heightOrWidth < scrollPositionDialog1 + 10 && dialog1HasBeenOpened === false) {
-        $("#dialog1").dialog({
-            buttons: [
-                {
-                    text: "Yes",
-                    click: function () {
-                        console.log("Yes");
-                        $(this).dialog("close");
-
-                        // $(document).ready(function () {
-                        //     $('#overlay').animate({
-                        //         opacity: 1,
-                        //     }, 4000, function () {
-                        //     });
-                        // });
-                        //
-                        // window.setTimeout(function () {
-                        //     window.location.href = ""; // TODO link to pg. 2
-                        // }, 5000);
-                    }
-                },
-                {
-                    text: "No",
-                    click: function () {
-                        console.log("No");
-                        $(this).dialog("close");
-
-                        $(document).ready(function () {
-                            $('#overlay').animate({
-                                opacity: 1,
-                            }, 4000, function () {
-                            });
-                        });
-
-                        window.setTimeout(function () {
-                            window.location.href = "credits.html";
-                        }, 5000);
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
-        dialog1HasBeenOpened = true;
-    } else if (heightOrWidth > scrollPositionDialog2 - 10 && heightOrWidth < scrollPositionDialog2 + 10 && dialog2HasBeenOpened === false) {
-        $("#dialog2").dialog({
-            buttons: [
-                {
-                    text: "Take the risk",
-                    click: function () {
-                        console.log("Take the risk");
-                        swordGrabbed = true;
-                        $(this).dialog("close");
-
-                        $("#dialogGrabSword").dialog({
-                            buttons: [
-                                {
-                                    text: "Well, that sucks",
-                                    click: function () {
-                                        $(this).dialog("close");
-                                    }
-                                }
-                            ]
-                        })
-                    }
-                },
-                {
-                    text: "I'll skip",
-                    click: function () {
-                        console.log("I'll skip");
-                        $(this).dialog("close");
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
-        dialog2HasBeenOpened = true;
-    } else if (heightOrWidth > scrollPositionDialog3 - 10 && heightOrWidth < scrollPositionDialog3 + 10 && dialog3HasBeenOpened === false) {
-        $("#dialog3").dialog({
-            buttons: [
-                {
-                    text: "Eat it!",
-                    click: function () {
-                        console.log("Eat it!");
-                        $(this).dialog("close");
-
-                        mushroomEaten = true;
-                        $("#dialogEatMushroom").dialog({
-                            buttons: [
-                                {
-                                    text: "Trippy!",
-                                    click: function () {
-                                        $(this).dialog("close");
-                                    }
-                                }
-                            ]
-                        })
-                    }
-                },
-                {
-                    text: "I hate mushrooms",
-                    click: function () {
-                        console.log("I hate mushrooms");
-                        $(this).dialog("close");
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
-        dialog3HasBeenOpened = true;
-    } else if (heightOrWidth > scrollPositionDialog4 - 10 && heightOrWidth < scrollPositionDialog4 + 10 && dialog4HasBeenOpened === false) {
-        $("#dialog4").dialog({
-            buttons: [
-                {
-                    text: "Use sword",
-                    click: function () {
-                        console.log("Use sword");
-                        $(this).dialog("close");
-                        // TODO add attack visual for 1.5/2 sec
-
-                        let randomInt = getRandomInt();
-                        if (swordGrabbed) {
-                            randomInt = Math.round(randomInt * 0.9);
-                        }
-
-                        if (mushroomEaten) {
-                            randomInt = Math.round(randomInt * 1.1);
-                        }
-                        healthBarEnemy = healthBarEnemy - randomInt;
-                        console.log("Health bar enemy = " + healthBarEnemy);
-
-                        if (healthBarEnemy > 0 || healthBarHero > 0) {
-                            setTimeout(function () {
-                                $("#dialog4").dialog("open");
-                            }, 2000)
-                        }
-                    }
-                },
-                {
-                    text: "Slap him",
-                    click: function () {
-                        console.log("Slap him");
-                        $(this).dialog("close");
-                        // TODO add attack visual for 1.5/2 sec
-
-                        let randomInt = getRandomInt();
-                        if (swordGrabbed) {
-                            randomInt = Math.round(randomInt * 0.9);
-                        }
-
-                        if (mushroomEaten) {
-                            randomInt = Math.round(randomInt * 1.1);
-                        }
-                        healthBarEnemy = healthBarEnemy - randomInt;
-                        console.log("Health bar enemy = " + healthBarEnemy);
-
-                        if (healthBarEnemy > 0 || healthBarHero > 0) {
-                            setTimeout(function () {
-                                $("#dialog4").dialog("open");
-                            }, 2000)
-                        }
-                    }
-                },
-                {
-                    text: "Scream at him",
-                    click: function () {
-                        console.log("Scream at him");
-                        $(this).dialog("close");
-                        // TODO add attack visual for 1.5/2 sec
-
-                        let randomInt = getRandomInt();
-                        if (swordGrabbed) {
-                            randomInt = Math.round(randomInt * 0.9);
-                        }
-
-                        if (mushroomEaten) {
-                            randomInt = Math.round(randomInt * 1.1);
-                        }
-                        healthBarEnemy = healthBarEnemy - randomInt;
-                        console.log("Health bar enemy = " + healthBarEnemy);
-
-                        if (healthBarEnemy > 0) {
-                            setTimeout(function () {
-                                $("#dialog4").dialog("open");
-                            }, 2000)
-                        }
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
-        dialog4HasBeenOpened = true;
-    } else if (heightOrWidth > scrollPositionDialog5 - 10 && heightOrWidth < scrollPositionDialog5 + 10 && dialog5HasBeenOpened === false) {
-        $("#dialog5").dialog({
-            buttons: [
-                {
-                    text: "Return, duh",
-                    click: function () {
-                        console.log("Return, duh");
-                        $(this).dialog("close");
-
-                        $(document).ready(function () {
-                            $('#overlay').animate({
-                                opacity: 1,
-                            }, 4000, function () {
-                            });
-                        });
-
-                        window.setTimeout(function () {
-                            window.location.href = "credits.html";
-                        }, 5000);
-                    }
-                },
-                {
-                    text: "I could use it...",
-                    click: function () {
-                        console.log("I could use it...");
-                        $(this).dialog("close");
-
-                        $(document).ready(function () {
-                            $('#overlay').animate({
-                                opacity: 1,
-                            }, 4000, function () {
-                            });
-                        });
-                        // open credits page
-                        window.setTimeout(function () {
-                            window.location.href = "credits.html";
-                        }, 5000);
-                    }
-                },
-            ],
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-
-        dialog5HasBeenOpened = true;
+    for (let i = 0; i < dialogs.length; i++) {
+        const dialog = dialogs[i];
+        if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
+            createDialog(dialog.id, dialog.number, dialog.buttons);
+        }
     }
 }
 
