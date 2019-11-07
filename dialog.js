@@ -45,6 +45,7 @@ function attack() {
     console.log("Health bar enemy = " + healthBarEnemy);
 
     if (healthBarEnemy > 0 && healthBarHero > 0) {
+        disableBodyScrolling();
         setTimeout(function () {
             $("#dialog4").dialog("open");
         }, 2000)
@@ -90,7 +91,7 @@ function createDialog(dialogId, dialogNumber, buttons) {
     dialogsOpened.push(dialogNumber);
 }
 
-// om te checken of een dialog geopened is kan je:
+// Om te checken of een dialog geopened is:
 function dialogHasBeenOpened(number) {
     return dialogsOpened.includes(number);
 }
@@ -146,7 +147,7 @@ const dialogFiveButtons = [
     })
 ];
 
-// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig, nog console.log toevoegen daar)
+// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
         scrollPosition: 200,
