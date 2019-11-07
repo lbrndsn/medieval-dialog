@@ -28,12 +28,26 @@
     <p>Loïs Berndsen</p>
     <p>Jason Pichardo</p>
     <p>Tim van Velthoven</p>
+
+    <audio src="sounds/crowd-booing-sound-effects.mp3" id="sound-booing" autoplay="true" muted="muted"></audio>
 </body>
 
 <script>
+    $(window).on('load', function() {
+        $("#sound-booing")[0].play();
+    });
+
+    // $(document).ready(function() {
+    //     document.getElementById("sound-booing").play();
+    // });
+
     $(document).ready(function() {
         $("html, body").animate({
             scrollTop: $(document).height() }, 13000);
     });
+
+    // window.setTimeout(function () {
+    //     window.location.href = "";
+    // }, 13000);
 </script>
 </html>
