@@ -130,11 +130,10 @@ function checkScrollPosition(heightOrWidth) {
             buttons: [
                 {
                     text: "Eat it!",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Eat it!");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
 
-                        // eat mushroom
                         mushroomEaten = true;
                         $("#dialogEatMushroom").dialog({
                             buttons: [
@@ -150,9 +149,9 @@ function checkScrollPosition(heightOrWidth) {
                 },
                 {
                     text: "I hate mushrooms",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("I hate mushrooms");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
                     }
                 },
             ],
@@ -171,7 +170,6 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
 
-                        // change health bar (random)
                         let randomInt = getRandomInt();
                         if (swordGrabbed) {
                             randomInt = Math.round(randomInt * 0.9);
@@ -197,7 +195,6 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
 
-                        // change health bar (random)
                         let randomInt = getRandomInt();
                         if (swordGrabbed) {
                             randomInt = Math.round(randomInt * 0.9);
@@ -223,7 +220,6 @@ function checkScrollPosition(heightOrWidth) {
                         $(this).dialog("close");
                         // TODO add attack visual for 1.5/2 sec
 
-                        // change health bar (random)
                         let randomInt = getRandomInt();
                         if (swordGrabbed) {
                             randomInt = Math.round(randomInt * 0.9);
@@ -253,34 +249,28 @@ function checkScrollPosition(heightOrWidth) {
             buttons: [
                 {
                     text: "Return, duh",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("Return, duh");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
 
-                        // return gold
-                        // fade to black screen
                         $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
                             }, 4000, function () {
                             });
                         });
-                        // open credits page
+
                         window.setTimeout(function () {
-                            window.location.href = "https://www.google.com/"; // TODO link to happy credits page
+                            window.location.href = ""; // TODO link to happy credits page
                         }, 5000);
                     }
                 },
                 {
                     text: "I could use it...",
-                    click: function () { // Er wordt geklikt/keuze gemaakt
+                    click: function () {
                         console.log("I could use it...");
-                        $(this).dialog("close"); // Pop up gaat weg
+                        $(this).dialog("close");
 
-                        // keep gold
-                        // TODO fade hero into enemy
-
-                        // fade to black screen
                         $(document).ready(function () {
                             $('#overlay').animate({
                                 opacity: 1,
@@ -289,7 +279,7 @@ function checkScrollPosition(heightOrWidth) {
                         });
                         // open credits page
                         window.setTimeout(function () {
-                            window.location.href = "https://www.google.com/"; // TODO link to sad credits page
+                            window.location.href = ""; // TODO link to sad credits page
                         }, 5000);
                     }
                 },
