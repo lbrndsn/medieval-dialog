@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+    <button id="play">play</button>
     <p>Loïs Berndsen</p>
     <p>Jason Pichardo</p>
     <p>Tim van Velthoven</p>
@@ -33,17 +34,16 @@
 </body>
 
 <script>
-    $(window).on('load', function() {
-        $("#sound-booing")[0].play();
-    });
-
-    // $(document).ready(function() {
-    //     document.getElementById("sound-booing").play();
-    // });
-
     $(document).ready(function() {
-        $("html, body").animate({
-            scrollTop: $(document).height() }, 13000);
+
+        $('#sound-booing').click(() => {
+            $('#sound-booing')[0].play();
+        });
+        $("html, body").animate({ scrollTop: $(document).height() }, 13000);
+        $('#sound-booing').on('canplay', () => {
+            $('#sound-booing').click();
+        });
+
     });
 
     // window.setTimeout(function () {
