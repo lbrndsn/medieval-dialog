@@ -80,7 +80,7 @@ function checkScrollPosition(heightOrWidth) {
                         });
 
                         window.setTimeout(function () {
-                            window.location.href = ""; // TODO link to credits page
+                            window.location.href = "credits.html";
                         }, 5000);
                     }
                 },
@@ -261,7 +261,7 @@ function checkScrollPosition(heightOrWidth) {
                         });
 
                         window.setTimeout(function () {
-                            window.location.href = ""; // TODO link to happy credits page
+                            window.location.href = "credits.html";
                         }, 5000);
                     }
                 },
@@ -279,7 +279,7 @@ function checkScrollPosition(heightOrWidth) {
                         });
                         // open credits page
                         window.setTimeout(function () {
-                            window.location.href = ""; // TODO link to sad credits page
+                            window.location.href = "credits.html";
                         }, 5000);
                     }
                 },
