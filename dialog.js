@@ -99,8 +99,8 @@ function dialogHasBeenOpened(number) {
 
 const dialogOneButtons = [
     createButton('Yes', function () {
-        // fadePage();
-        // goToPage(''); // todo
+        fadePage();
+        goToPage('game.html');
     }),
     createButton('No', function () {
         fadePage();
