@@ -41,6 +41,7 @@ function attack() {
     if (mushroomEaten) {
         randomInt = Math.round(randomInt * 1.1);
     }
+
     healthBarEnemy = healthBarEnemy - randomInt;
     console.log("Health bar enemy = " + healthBarEnemy);
 
@@ -91,7 +92,7 @@ function createDialog(dialogId, dialogNumber, buttons) {
     dialogsOpened.push(dialogNumber);
 }
 
-// Om te checken of een dialog geopened is:
+// To check if dialog has been opened
 function dialogHasBeenOpened(number) {
     return dialogsOpened.includes(number);
 }
@@ -191,13 +192,13 @@ function checkScrollPosition(heightOrWidth) {
     }
 }
 
-// Deze voor verticale scroll pagina's
+// Vertical
 $(window).scroll(function () {
     const currentHeight = $(window).scrollTop();
     checkScrollPosition(currentHeight);
 });
 
-// Deze voor horizontale scrollpagina
+// Horizontal
 $(window).scroll(function () {
     const currentWidth = $(window).scrollLeft();
     checkScrollPosition(currentWidth);

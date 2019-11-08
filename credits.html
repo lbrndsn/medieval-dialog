@@ -25,29 +25,20 @@
     </style>
 </head>
 <body>
-    <button id="play">play</button>
     <p>Loïs Berndsen</p>
     <p>Jason Pichardo</p>
     <p>Tim van Velthoven</p>
-
-    <audio src="sounds/crowd-booing-sound-effects.mp3" id="sound-booing" autoplay="true" muted="muted"></audio>
 </body>
 
 <script>
-    $(document).ready(function() {
 
-        $('#sound-booing').click(() => {
-            $('#sound-booing')[0].play();
-        });
-        $("html, body").animate({ scrollTop: $(document).height() }, 13000);
-        $('#sound-booing').on('canplay', () => {
-            $('#sound-booing').click();
-        });
-
-    });
+    $("html, body").animate( {
+        scrollTop: $(document).height()
+    }, 13000);
 
     // window.setTimeout(function () {
     //     window.location.href = "";
     // }, 13000);
+
 </script>
 </html>
