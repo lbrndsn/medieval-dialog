@@ -85,6 +85,7 @@ const dialogsOpened = [];
 function createDialog(dialogId, dialogNumber, buttons) {
     $("#" + dialogId).dialog({
         buttons: buttons,
+        dialogClass: dialogId,
         open: disableBodyScrolling,
         close: enableBodyScrolling
     }).dialog("widget").find(".ui-dialog-title").hide();
