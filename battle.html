@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Battle</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="battle.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio> -->
+        <audio src="audio/combat-music.mp4" id="combat-music" loop="loop"></audio>
+
+        <div class="background-container">
+            <div class="header-bg"></div>
+            <div class="header-bg2"></div>
+            <div class="header-bg3"></div>
+            <div class="header-bg4"></div>
+            <div class="header-bg5"></div>
+            <div class="header-bg6"></div>
+            <div class="header-bg7"></div>
+            <div class="header-bg8"></div>
+            <div class="header-bg9"></div>
+        </div>
+
+        <img src="img/cave-background.png" class="cave-background">
+
+        <div class="adventurer-container">
+            <img class="" src="img/adventurer_idle.gif">
+            <div class="health-bar-container">
+                <img src="img/health_bar_decoration.png" class="health-bar-outline">
+                <img src="img/health_bar.png" id="hero-health-bar" class="health-bar">
+            </div>
+        </div>
+
+        <img src="img/cave-foreground.png" class="cave-foreground">
+
+        <div class="enemy-container">
+            <img class="" src="img/enemy_idle.gif">
+            <div class="health-bar-container">
+                <img src="img/health_bar_decoration.png" class="health-bar-outline">
+                <img src="img/health_bar.png" id="enemy-health-bar" class="health-bar">
+            </div>
+        </div>
+
+        <div id="dialog4">
+            <p>Which attack do you want to use?</p>
+        </div>
+
+        <script src="battle.js"></script>
+        <script src="dialog.js"></script>
+
+        <script>
+            const dialog = dialogs[3];
+            createDialog(dialog.id, dialog.number, dialog.buttons);
+        </script>
+    </body>
+</html>
