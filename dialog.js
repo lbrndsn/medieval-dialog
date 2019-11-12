@@ -1,3 +1,4 @@
+// Disable scrolling when dialog is opened
 function disableBodyScrolling() {
     $('#disableScrollDiv').css({
         display: "block"
@@ -8,6 +9,7 @@ function disableBodyScrolling() {
     });
 }
 
+// Enable scrolling when dialog is closed
 function enableBodyScrolling() {
     $('#disableScrollDiv').css({
         display: "hidden"
@@ -20,20 +22,19 @@ function enableBodyScrolling() {
 
 let healthBarHero = 100;
 let healthBarEnemy = 100;
-const mathMax = 31;
-const mathMin = 5;
+
 let mushroomEaten = false;
 let swordGrabbed = false;
 
 // Get random integer for amount of damage
-function getRandomInt() {
-    return Math.floor(Math.random() * (mathMax - mathMin) + mathMin);
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 function attack() {
     // TODO add attack visual for 1.5/2 sec
 
-    let randomInt = getRandomInt();
+    let randomInt = getRandomInt(5, 31);
     if (swordGrabbed) {
         randomInt = Math.round(randomInt * 0.9);
     }
@@ -43,13 +44,19 @@ function attack() {
     }
 
     healthBarEnemy = healthBarEnemy - randomInt;
-    console.log("Health bar enemy = " + healthBarEnemy);
+    $('#enemy-health-bar').css("width", "calc(" + healthBarEnemy + "% - 22px)");
+    console.log("> Health bar enemy = " + healthBarEnemy);
 
-    if (healthBarEnemy > 0 && healthBarHero > 0) {
+    if (healthBarEnemy > 20 && healthBarHero > 20) {
         disableBodyScrolling();
         setTimeout(function () {
+            healthBarHero = healthBarHero - getRandomInt(5, 21);
+            $('#hero-health-bar').css("width", "calc(" + healthBarHero + "% - 22px)");
+            console.log(healthBarHero);
+        }, 2000);
+        setTimeout(function () {
             $("#dialog4").dialog("open");
-        }, 2000)
+        }, 4000);
     }
 }
 
