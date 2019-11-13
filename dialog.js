@@ -57,6 +57,8 @@ function attack() {
         setTimeout(function () {
             $("#dialog4").dialog("open");
         }, 4000);
+    } else {
+        goToPage("cave.html");
     }
 }
 
@@ -144,15 +146,57 @@ const dialogFourButtons = [
     })
 ];
 
+let couldUseIsClicked = false;
+
 const dialogFiveButtons = [
     createButton('Return, duh', function () {
-        fadePage();
-        goToPage("credits.html");
+        setTimeout(function () {
+            var percentageToScroll = 100;
+            var percentage = percentageToScroll / 100;
+            var height = $(document).scrollTop();
+            var scrollAmount = height * (1 - percentage);
+
+            $('html,body').animate({
+                scrollTop: scrollAmount
+            }, 5000, function () {
+            });
+        }, 1000);
+
+        setTimeout(function () {
+            fadePage();
+            goToPage("credits.html");
+        }, 6000);
     }),
     createButton('I could use it...', function () {
-        // todo turn into enemy
-        fadePage();
-        goToPage("credits.html");
+        couldUseIsClicked = true;
+        $('.chestOpen').fadeIn(0, function(){
+            $('.chest').fadeOut(0);
+        });
+
+        setTimeout(function () {
+            $('.adventurer-cave').fadeOut(2000, function(){
+                $('.evilAdventurer').fadeIn(2000);
+            });
+        }, 1000);
+
+        setTimeout(function () {
+            if (couldUseIsClicked === true) {
+                var percentageToScroll = 100;
+                var percentage = percentageToScroll / 100;
+                var height = $(document).scrollTop();
+                var scrollAmount = height * (1 - percentage);
+
+                $('html,body').animate({
+                    scrollTop: scrollAmount
+                }, 5000, function () {
+                });
+            }
+        }, 5500);
+
+        setTimeout(function () {
+            fadePage();
+            goToPage("credits.html");
+        }, 10000);
     })
 ];
 
@@ -183,7 +227,7 @@ const dialogs = [
         buttons: dialogFourButtons
     },
     {
-        scrollPosition: 1000,
+        scrollPosition: 2158.75,
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
@@ -211,3 +255,11 @@ $(window).scroll(function () {
     const currentWidth = $(window).scrollLeft();
     checkScrollPosition(currentWidth);
 });
+
+// BATTLE JS
+$(window).click(function() {
+    $('#combat-music')[0].play();
+});
+
+const dialog = dialogs[3];
+createDialog(dialog.id, dialog.number, dialog.buttons);

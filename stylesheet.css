@@ -21,8 +21,9 @@
 
 /* width en height nog veranderen naar auto */
 body {
-    width: 5000px;
-    height: 5000px;
+    margin: 0;
+    width: auto;
+    height: auto;
     overflow: scroll;
 }
 
@@ -40,7 +41,12 @@ button:focus {
     width: 300px;
     height: auto;
     left: 50% !important;
+    top: 50% !important;
     transform: translate(-50%, -50%);
+}
+
+.ui-widget.ui-widget-content.dialog4 {
+    top: 30% !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
@@ -97,4 +103,340 @@ button:focus {
     background-clip: padding-box;
     background-origin: padding-box;
     background-position: center;
+}
+
+
+/* BATTLE */
+.cave-background {
+    position: absolute;
+    right: 0;
+    bottom: 84px;
+}
+
+.cave-foreground {
+    position: absolute;
+    right: 0;
+    bottom: 84px;
+}
+
+.forest-header-bg {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0010_1.png");
+}
+
+.forest-header-bg2 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0009_2.png");
+    background-position: top center;
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg3 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0008_3.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg4 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0006_4.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg5 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0005_5.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg6 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0003_6.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg7 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0002_7.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg8 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0001_8.png");
+    background-size: 120%;
+    margin-top: -1000px;
+}
+
+.forest-header-bg9 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/Layer_0000_9.png");
+    background-size: 120%;
+    margin-top: -900px;
+}
+
+.adventurer {
+    position: fixed;
+    width: 70%;
+    height: 150vh;
+    background-image: url(img/adventurer_idle.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.adventurer-container {
+    position: fixed;
+    top: 50%;
+    left: 28%;
+}
+
+.enemy-container {
+    position: fixed;
+    top: 50%;
+    right: 32%;
+}
+
+.adventurer-container .health-bar-container {
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+
+.enemy-container .health-bar-container {
+    position: absolute;
+    right: -70px;
+    top: 0;
+}
+
+.health-bar {
+    height: 100%;
+    width: calc(100% - 22px);
+    position: absolute;
+    left: 22px;
+    top: 0;
+    transition: width .5s ease-in-out;
+}
+
+.health-bar-outline {
+    width: 120px;
+}
+
+.enemy {
+    position: fixed;
+    width: 130%;
+    height: 150vh;
+    background-image: url(img/enemy_idle.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* CAVE */
+header {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-color: #210002;
+    margin-bottom: 1000px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+footer {
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0c1b;
+    position: relative;
+    z-index: 1;
+}
+
+.ui-widget-content {
+    background: transparent;
+}
+
+.pink-header-bg {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/parallax-mountain-bg.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+.pink-header-bg2 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/parallax-mountain-montain-far.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+
+.pink-header-bg3 {
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    background-image: url("img/parallax-mountain-mountains.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 220%;
+}
+
+.pink-header-bg4 {
+    position: fixed;
+    width: 100%;
+    height: 180%;
+    background-image: url("img/parallax-mountain-trees.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.pink-header-bg5 {
+    position: fixed;
+    width: 100%;
+    height: 220%;
+    background-image: url("img/parallax-mountain-foreground-trees.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.pink-header-bg6 {
+    position: fixed;
+    width: 100%;
+    height: 230%;
+    background-image: url("img/parallax-mountain-foreground-trees.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 100px;
+    background-size: 100%;
+}
+
+.transition-box {
+    position: fixed;
+    width: 100%;
+    height: 410%;
+    background-image: url("img/parallax-ground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.underground {
+    position: relative;
+    background-image: url("img/Naamloos-1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    z-index: 3;
+}
+
+.footer-bg {
+    position: fixed;
+    width: 100%;
+    margin-top: 110%;
+    height: 100vh;
+    background-image: url("img/Naamloos-2.png");
+}
+
+.footer-bg2 {
+    position: fixed;
+    margin-top: 117%;
+    width: 100%;
+    height: 200vh;
+    background-image: url("img/Naamloos-3.png");
+}
+
+.chest {
+    position: fixed;
+    margin-top: 115.5%;
+    width: 100%;
+    height: 200%;
+    background-image: url("img/obj_chest.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.chestOpen {
+    position: fixed;
+    margin-top: 115%;
+    width: 101.8%;
+    height: 200%;
+    background-image: url(img/chest_open.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 7%;
+    display: none;
+}
+
+.adventurer-cave {
+    background-image: url("img/adventurer_idle.gif");
+    position: absolute;
+    width: calc(350px / 1.5);
+    height: calc(259px / 1.5);
+    background-size: contain;
+    bottom: 90px;
+    z-index: 99999;
+    top: 77% !important;
+}
+
+.adventurer.walking.idle {
+    background-image: url('img/adventurer_idle.gif');
+}
+
+.adventurer.walking {
+    background-image: url('img/adventurer_walking.gif');
+    animation: walk-left 10000ms forwards;
+    animation-delay: 500ms;
+    opacity: 0;
+}
+
+@-webkit-keyframes walk-left {
+    0% {
+        left: -200px;
+        opacity: 1;
+    }
+
+    100% {
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+.evilAdventurer {
+    position: fixed;
+    margin-top: 111%;
+    width: 85%;
+    height: 200vh;
+    background-image: url("img/enemy_idle.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    display: none;
 }
