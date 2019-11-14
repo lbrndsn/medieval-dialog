@@ -317,17 +317,19 @@ button:focus {
 }
 
 .ui-widget.ui-widget-content {
-    border: none;
+    border: none !important;
     position: fixed !important;
     width: 300px;
     height: auto;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%);
+    background-color: transparent !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
     border: none;
     margin: 0;
     padding: 0;
+    background-color: transparent;
 }
