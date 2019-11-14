@@ -254,7 +254,7 @@ img {
     position: absolute;
     height: calc(343px / 1.6);
     width: calc(168px / 1.6);
-    bottom: 200px;
+    bottom: 180px;
     left: 10%;
     z-index: 9;
 }
