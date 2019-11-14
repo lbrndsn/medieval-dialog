@@ -89,9 +89,10 @@
     function typeText(text, iteration) {
         if (iteration === text.length) {
             setTimeout(function () {
+                $('#intro-text-p').append("</br>");
                 $('#intro-text-p').append("<a id='yes' href='#game'><button>yes</button></a>");
                 $('#intro-text-p').append("<a id='no' href='credits.html'><button id='no'>no</button></a>");
-            }, 10);
+            }, 75);
             return;
         }
 
