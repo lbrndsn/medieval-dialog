@@ -238,7 +238,7 @@ const dialogs = [
         buttons: dialogFourButtons
     },
     {
-        scrollPosition: 1450,
+        scrollPosition: 1850,
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
@@ -249,8 +249,22 @@ function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
     for (let i = 0; i < dialogs.length; i++) {
         const dialog = dialogs[i];
-        if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
-            createDialog(dialog.id, dialog.number, dialog.buttons);
+        if (dialog.number === 1) {
+            if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+                setTimeout(function () {
+                    createDialog(dialog.id, dialog.number, dialog.buttons);
+                }, 5000);
+            }
+        } else {
+            if (dialog.number === 5) {
+                setTimeout(function () {
+                    createDialog(dialog.id, dialog.number, dialog.buttons);
+                }, 10000);
+            } else {
+                if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+                    createDialog(dialog.id, dialog.number, dialog.buttons);
+                }
+            }
         }
     }
 }

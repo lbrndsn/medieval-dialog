@@ -20,6 +20,13 @@ p, span, h1, h2, h3, h4, a {
     color: inherit;
 }
 
+
+.game {
+    height: 100vh;
+    position: relative;
+}
+
+
 /* INDEX.HTML */
 
 #logo {
@@ -228,7 +235,8 @@ img {
 }
 
 .adventurer.in-cave.walking {
-    animation: walk-cave 10000ms forwards;
+    animation: walk-cave 8000ms forwards;
+    animation-timing-function: linear;
 }
 
 .adventurer.in-kingdom.walking {
@@ -236,14 +244,7 @@ img {
     animation-delay: 500ms;
 }
 
-/* */
-
-
-/* KINGDOM */
-
-.game {
-    height: 100vh;
-    position: relative;
+.game.kingdom {
     overflow: hidden;
 }
 
@@ -823,12 +824,12 @@ button:focus {
 
 @-webkit-keyframes walk-cave {
     0% {
-        margin-left: -50vw;
+        right: 50vw;
         opacity: 1;
     }
 
     100% {
-        margin-left: 50%;
+        right: 0;
         opacity: 1;
     }
 }
