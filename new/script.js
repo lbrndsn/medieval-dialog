@@ -21,7 +21,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 100;
+let healthBarEnemy = 00;
 
 let mushroomEaten = false;
 let swordGrabbed = false;
@@ -63,10 +63,12 @@ function attack() {
             $('.enemy-container .health-bar-container').remove();
             $('.adventurer-container .health-bar-container').remove();
             $('.adventurer.battle').removeClass('battle');
-            $('.adventurer').addClass('cave');
-            $('.adventurer.cave').addClass('walking');
+            $('.adventurer').addClass('cave-in');
+            $('.adventurer.cave-in').addClass('walking');
         }, 2000);
-        goToPage("cave.html");
+        setTimeout(function () {
+            goToPage("cave.html");
+        }, 2000);
     }
 }
 
