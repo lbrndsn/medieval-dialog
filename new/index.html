@@ -49,8 +49,7 @@
     $(window).click(function () {
         $('#medieval-music')[0].play();
     });
-
-
+    
     var hero_anchor = $('.adventurer').offset().top - screen.height + 100;
     var intro_anchor = $('.intro-scroll').height() - screen.height + 100;
     var text_anchor = $('#intro-text-p').offset().top - screen.height + 100;
@@ -101,89 +100,6 @@
             typeText(text, iteration);
         }, 5);
     }
-
-    //////
-    function disableBodyScrolling() {
-        $('#disableScrollDiv').css({
-            display: "block"
-        });
-        $('body').css({
-            overflow: "hidden"
-        });
-    }
-
-    function enableBodyScrolling() {
-        $('#disableScrollDiv').css({
-            display: "hidden"
-        });
-        $('body').css({
-            overflow: "auto"
-        });
-    }
-
-    function fadePage() {
-        $(document).ready(function () {
-            $('#overlay').animate({
-                opacity: 1,
-            }, 4000, function () {
-            });
-        });
-    }
-
-    function goToPage(page) {
-        window.setTimeout(function () {
-            window.location.href = page;
-        }, 5000);
-    }
-
-    function createButton(text, click) {
-        return {
-            text: text,
-            click: function () {
-                $(this).dialog("close");
-                if (click) {
-                    click();
-                }
-            }
-        }
-    }
-
-    const dialogsOpened = [];
-
-    function createDialog(dialogId, dialogNumber, buttons) {
-        $("#" + dialogId).dialog({
-            buttons: buttons,
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-        dialogsOpened.push(dialogNumber);
-    }
-
-    // To check if dialog has been opened
-    function dialogHasBeenOpened(number) {
-        return dialogsOpened.includes(number);
-    }
-
-    const dialogOneButtons = [
-        createButton('Yes', function () {
-            fadePage();
-            goToPage('battle.html');
-        }),
-        createButton('No', function () {
-            fadePage();
-            goToPage("credits.html");
-        })
-    ];
-
-    const dialogs = [
-        {
-            scrollPosition: 1300,
-            id: 'dialog1',
-            number: 1,
-            buttons: dialogOneButtons
-        }
-    ];
-
     function checkScrollPosition(heightOrWidth) {
         console.log(heightOrWidth);
         for (let i = 0; i < dialogs.length; i++) {
@@ -195,18 +111,6 @@
             }
         }
     }
-
-    // Vertical
-    $(window).scroll(function () {
-        const currentHeight = $(window).scrollTop();
-        checkScrollPosition(currentHeight);
-    });
-
-    // Horizontal
-    $(window).scroll(function () {
-        const currentWidth = $(window).scrollLeft();
-        checkScrollPosition(currentWidth);
-    });
 </script>
 
 <script src="script.js"></script>
