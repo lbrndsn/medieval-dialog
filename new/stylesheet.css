@@ -183,28 +183,61 @@ img {
 }
 
 
-/* HERO */
+/* ADVENTURER & ENEMY IDLE */
 .adventurer {
     position: relative;
     width: calc(350px / 1.5);
     height: calc(259px / 1.5);
     background-size: contain;
-    background-image: url('img/adventurer_idle.gif');
+    background-image: url('img/anims/adventurer_idle.gif');
+    background-repeat: no-repeat;
     z-index: 9;
     bottom: 0;
 }
 
-
-.adventurer.in-kingdom.walking {
-    background-image: url('img/adventurer_walking.gif');
-    animation: walk-right 4000ms forwards;
-    animation-delay: 500ms;
+.adventurer.in-kingdom {
+    transform: scaleX(-1);
     opacity: 0;
 }
 
-.adventurer.in-kingdom {
-    transform: scaleX(-1);
+.adventurer.in-kingdom.idle {
+    opacity: 1;
 }
+
+.enemy {
+    position: relative;
+    width: calc(231px / 1.25);
+    height: calc(252px / 1.25);
+    background-size: contain;
+    background-image: url('img/anims/enemy_idle.gif');
+    background-repeat: no-repeat;
+    z-index: 9;
+    top: 70%;
+}
+
+/* */
+
+/* ADVENTURER WALKING */
+
+.adventurer.walking {
+    background-image: url('img/anims/adventurer_walking.gif');
+}
+
+.adventurer.cave-in.walking {
+    animation: walk-left-cave 10000ms forwards;
+}
+
+.adventurer.in-cave.walking {
+    animation: walk-cave 10000ms forwards;
+}
+
+.adventurer.in-kingdom.walking {
+    animation: walk-right 4000ms forwards;
+    animation-delay: 500ms;
+}
+
+/* */
+
 
 /* KINGDOM */
 
@@ -272,16 +305,6 @@ img {
     background-color: transparent;
 }
 
-#overlay {
-    background-color: #000000;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
-
 button:focus {
     outline: 0;
 }
@@ -291,16 +314,7 @@ button:focus {
 }
 
 /* */
-#disableScrollDiv {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9;
-    overflow: hidden;
-    background-color: transparent;
-}
+
 
 #overlay {
     background-color: #000000;
@@ -587,28 +601,6 @@ button:focus {
     background-image: url('img/chest_open.gif');
 }
 
-.adventurer.walking.idle {
-    background-image: url('img/adventurer_idle.gif');
-}
-
-.adventurer.walking {
-    background-image: url('img/adventurer_walking.gif');
-    animation: walk-left 10000ms forwards;
-    animation-delay: 500ms;
-    opacity: 0;
-}
-
-.adventurer.cave-in.walking {
-    background-image: url('img/adventurer_walking.gif');
-    animation: walk-left-cave 10000ms forwards;
-    opacity: 0;
-}
-
-.adventurer.in-cave.walking {
-    animation: walk-cave 10000ms forwards;
-}
-
-
 .background-container {
     display: block;
     position: absolute;
@@ -667,39 +659,48 @@ button:focus {
     left: 75vw;
 }
 
-/* ADVENTURER ATTACKS */
+/* ADVENTURER BATTLE */
+
+.adventurer.battle {
+    transition: left 500ms ease;
+    left: 0;
+}
 
 .adventurer.battle.attack-punch {
-    background-image: url('img/adventurer_attack_punch.png');
+    background-image: url('img/anims/adventurer_attack_punch.png');
     animation: gif-anim steps(6) 1000ms;
     background-size: 700%;
+    left: 60%;
 }
 
 .adventurer.battle.attack {
-    background-image: url('img/adventurer_attack_sword.png');
+    background-image: url('img/anims/adventurer_attack_sword.png');
     animation: gif-anim steps(5) 800ms;
     background-size: 600%;
+    left: 60%;
+}
+
+.adventurer.battle.scream {
+
 }
 
 /* */
 
-.enemy {
-    position: relative;
-    width: calc(231px / 1.25);
-    height: calc(252px / 1.25);
-    background-size: contain;
-    background-image: url('img/enemy_idle.gif');
-    z-index: 9;
-    top: 70%;
+/* ENEMY BATTLE */
+.enemy.battle {
+    transition: right 500ms ease;
+    right: 0;
 }
 
-.enemy.attack {
-    background-image: url('img/enemy_attack.gif');
-    animation: attack-enemy 1800ms;
+.enemy.battle.attack {
+    background-image: url('img/anims/enemy_attack.png');
+    animation: gif-anim steps(7) 1200ms;
+    background-size: 800%;
+    right: 60%;
 }
 
 .enemy.dead {
-    background-image: url('img/enemy_dead.png');
+    background-image: url('img/anims/enemy_dead.png');
     background-size: 900%;
     animation: gif-anim steps(8) 1600ms forwards;
     width: calc(308px / 1.25);
@@ -738,27 +739,6 @@ button:focus {
 
 .ui-widget-content {
     background: transparent;
-}
-
-#disableScrollDiv {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9;
-    overflow: hidden;
-    background-color: transparent;
-}
-
-#overlay {
-    background-color: #000000;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
 }
 
 button:focus {

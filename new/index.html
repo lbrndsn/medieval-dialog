@@ -42,7 +42,6 @@
     $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
     $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
     $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
-
     $(".adventurer-container").append("<div class='adventurer in-kingdom'></div>");
 
     $(window).click(function () {
@@ -54,11 +53,9 @@
     var text_anchor = $('#intro-text-p').offset().top - screen.height + 100;
 
     $(window).on('scroll.togame', function () {
-
         if ($(window).scrollTop() >= intro_anchor) {
             $(window).scrollTop(intro_anchor);
         }
-
         $("#yes").click(function () {
             $("html").css("scroll-behavior", "smooth");
             intro_anchor += intro_anchor
@@ -66,8 +63,9 @@
     });
 
     $(window).on('scroll', function () {
-        if ($(window).scrollTop() > hero_anchor)
+        if ($(window).scrollTop() > hero_anchor) {
             $('.adventurer.in-kingdom').addClass("walking");
+        }
     });
 
     $(window).on('scroll.text', function () {
@@ -77,11 +75,13 @@
         }
     });
 
-    $('.adventurer').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+    $('.adventurer.in-kingdom').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+        $(this).removeClass("walking");
         $(this).addClass("idle");
     });
 
     //////
+
     var text = "An evil enemy stole all the gold from your village... As a last resort, the king came to you, the retired village hero. He went all around the kingdom, but no fighter was as brave as you. Will you help him one last time?";
 
     function typeText(text, iteration) {

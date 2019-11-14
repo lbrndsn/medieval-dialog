@@ -21,7 +21,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 0;
+let healthBarEnemy = 100;
 
 let mushroomEaten = false;
 let swordGrabbed = false;

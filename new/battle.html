@@ -53,14 +53,13 @@
     $('.enemy-container .health-bar-container .health-bar').attr('id', 'enemy-health-bar');
     $('.adventurer-container .health-bar-container .health-bar').attr('id', 'adventurer-health-bar');
 
-    $('.adventurer').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
-        var checkHealthEnemy = $('.enemy').hasClass('attack')
+    $('.adventurer.battle').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
         $(this).removeClass("attack-punch");
         $(this).removeClass("scream");
         $(this).removeClass("attack");
     });
 
-    $('.enemy').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+    $('.enemy.battle').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
         $(this).removeClass("attack");
 
     });
