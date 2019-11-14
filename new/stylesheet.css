@@ -302,13 +302,13 @@ button:focus {
     left: 50%;
     width: 95px;
     height: 77px;
-    background-image: url(img/obj_chest.png);
+    background-image: url('img/obj_chest.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .chest.open {
-    background-image: url(img/chest_open.gif);
+    background-image: url('img/chest_open.gif');
 }
 
 .adventurer.walking.idle {
@@ -319,6 +319,12 @@ button:focus {
     background-image: url('img/adventurer_walking.gif');
     animation: walk-left 10000ms forwards;
     animation-delay: 500ms;
+    opacity: 0;
+}
+
+.adventurer.cave-in.walking {
+    background-image: url('img/adventurer_walking.gif');
+    animation: walk-left-cave 10000ms forwards;
     opacity: 0;
 }
 
@@ -337,6 +343,19 @@ button:focus {
         opacity: 1;
     }
 }
+
+@-webkit-keyframes walk-left-cave {
+    0% {
+        margin-left: 0;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 1500px;
+        opacity: 1;
+    }
+}
+
 
 @-webkit-keyframes walk-left {
     0% {
@@ -617,7 +636,6 @@ button:focus {
 }
 
 .ui-dialog-buttonset {
-    margin-right: -5px;
     white-space: nowrap;
 }
 
