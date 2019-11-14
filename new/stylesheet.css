@@ -10,7 +10,7 @@ body {
     font-family: 'Equipment', serif;
     font-size: 14px;
     margin: 0;
-    background: #ab6a8c;
+    background: #ffffff;
     color: #deab3b;
 }
 
@@ -182,18 +182,16 @@ img {
     width: 100%;
 }
 
-/* GAME */
-
 
 /* HERO */
 .adventurer {
-    background-image: url('img/adventurer_idle.gif');
-    position: absolute;
+    position: relative;
     width: calc(350px / 1.5);
     height: calc(259px / 1.5);
     background-size: contain;
-    bottom: 90px;
+    background-image: url('img/adventurer_idle.gif');
     z-index: 9;
+    bottom: 0;
 }
 
 
@@ -203,31 +201,6 @@ img {
     animation-delay: 500ms;
     opacity: 0;
 }
-
-@-webkit-keyframes walk-right {
-    0% {
-        margin-left: 500px;
-        opacity: 1;
-    }
-
-    100% {
-        margin-left: 0;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes walk-back {
-    0% {
-        right: 250px;
-        opacity: 1;
-    }
-
-    100% {
-        right: -200px;
-        opacity: 1;
-    }
-}
-
 
 .adventurer.in-kingdom {
     transform: scaleX(-1);
@@ -317,27 +290,7 @@ button:focus {
     display: none;
 }
 
-.ui-widget.ui-widget-content {
-    border: none !important;
-    position: fixed !important;
-    width: 300px;
-    height: auto;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%);
-    background-color: transparent !important;
-}
-
-.ui-dialog .ui-dialog-buttonpane {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-
-
 /* */
-
-
 #disableScrollDiv {
     position: fixed;
     top: 0;
@@ -379,12 +332,14 @@ button:focus {
 
 .ui-widget.ui-widget-content.dialog4 {
     top: 30% !important;
+    width: auto !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
     border: none;
     margin: 0;
     padding: 0;
+    background-color: transparent;
 }
 
 .ui-dialog-buttonset {
@@ -393,7 +348,6 @@ button:focus {
 }
 
 .ui-dialog .ui-dialog-buttonpane button {
-    font-size: 1.25rem;
     flex: auto;
     border-width: 10px;
     padding: 0 1rem;
@@ -440,6 +394,7 @@ button:focus {
     position: absolute;
     right: 0;
     bottom: 50px;
+    width: auto;
 }
 
 .cave-foreground {
@@ -447,6 +402,7 @@ button:focus {
     z-index: 99999;
     right: 0;
     bottom: 70px;
+    width: auto;
 }
 
 .forest-header-bg {
@@ -487,15 +443,6 @@ button:focus {
     z-index: 9999999;
 }
 
-.adventurer {
-    position: relative;
-    width: calc(350px / 1.5);
-    height: calc(259px / 1.5);
-    background-size: contain;
-    background-image: url('img/adventurer_idle.gif');
-    z-index: 9;
-    bottom: 0;
-}
 
 .health-bar-outline {
     width: 120px;
@@ -517,10 +464,6 @@ button:focus {
     display: block;
     width: 100%;
     position: relative;
-}
-
-.ui-widget-content {
-    background: transparent;
 }
 
 .pink-header-bg {
@@ -665,67 +608,6 @@ button:focus {
     animation: walk-cave 10000ms forwards;
 }
 
-@-webkit-keyframes walk-cave {
-    0% {
-        margin-left: -50vw;
-        opacity: 1;
-    }
-
-    100% {
-        margin-left: 50%;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes walk-left-cave {
-    0% {
-        margin-left: 0;
-        opacity: 1;
-    }
-
-    100% {
-        margin-left: 1500px;
-        opacity: 1;
-    }
-}
-
-
-@-webkit-keyframes walk-left {
-    0% {
-        left: -200px;
-        opacity: 1;
-    }
-
-    100% {
-        left: 50%;
-        opacity: 1;
-    }
-}
-
-
-@-webkit-keyframes walk-right {
-    0% {
-        margin-left: 500px;
-        opacity: 1;
-    }
-
-    100% {
-        margin-left: 0;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes walk-back {
-    0% {
-        right: 250px;
-        opacity: 1;
-    }
-
-    100% {
-        right: -200px;
-        opacity: 1;
-    }
-}
 
 .background-container {
     display: block;
@@ -781,14 +663,11 @@ button:focus {
     z-index: 99999999;
 }
 
-.game {
-    height: 100vh;
-    position: relative;
-}
-
 .game.kingdom .adventurer-container {
     left: 75vw;
 }
+
+/* ADVENTURER ATTACKS */
 
 .adventurer.battle.attack-punch {
     background-image: url('img/adventurer_attack_punch.png');
@@ -802,13 +681,16 @@ button:focus {
     background-size: 600%;
 }
 
-@keyframes gif-anim {
-    0% {
-        background-position: 0;
-    }
-    100% {
-        background-position: 100%;
-    }
+/* */
+
+.enemy {
+    position: relative;
+    width: calc(231px / 1.25);
+    height: calc(252px / 1.25);
+    background-size: contain;
+    background-image: url('img/enemy_idle.gif');
+    z-index: 9;
+    top: 70%;
 }
 
 .enemy.attack {
@@ -822,16 +704,6 @@ button:focus {
     animation: gif-anim steps(8) 1600ms forwards;
     width: calc(308px / 1.25);
     height: calc(238px / 1.25);
-}
-
-.enemy {
-    position: relative;
-    width: calc(231px / 1.25);
-    height: calc(252px / 1.25);
-    background-size: contain;
-    background-image: url('img/enemy_idle.gif');
-    z-index: 9;
-    top: 70%;
 }
 
 .adventurer-container {
@@ -848,7 +720,6 @@ button:focus {
     right: 35%
 }
 
-
 .health-bar-container {
     width: 120px;
     position: relative;
@@ -863,10 +734,6 @@ button:focus {
     position: absolute;
     left: 26px;
     transition: width .5s ease-in-out;
-}
-
-.health-bar-outline {
-    width: 120px;
 }
 
 .ui-widget-content {
@@ -913,15 +780,6 @@ button:focus {
 
 .dialog4 {
     top: 30% !important;
-}
-
-.ui-dialog .ui-dialog-buttonpane {
-    border: none;
-    padding: 0;
-}
-
-.ui-dialog-buttonset {
-    white-space: nowrap;
 }
 
 .background-title {
@@ -980,3 +838,77 @@ button:focus {
     background-position: bottom;
     background-repeat: no-repeat;
 }
+
+/* ANIMATIONS WALKING */
+
+@-webkit-keyframes walk-cave {
+    0% {
+        margin-left: -50vw;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 50%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes walk-left-cave {
+    0% {
+        margin-left: 0;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 1500px;
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes walk-left {
+    0% {
+        left: -200px;
+        opacity: 1;
+    }
+
+    100% {
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes walk-right {
+    0% {
+        margin-left: 500px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: 0;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes walk-back {
+    0% {
+        right: 250px;
+        opacity: 1;
+    }
+
+    100% {
+        right: -200px;
+        opacity: 1;
+    }
+}
+
+
+@keyframes gif-anim {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
