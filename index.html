@@ -72,18 +72,17 @@
             $('#hero.in-kingdom').addClass("walking");
     });
 
-    $(window).scroll(function () {
-        $('body').addClass('walking');
-    });
+
 
     var lastTimeScrolled = null;
     var theElementYouCareAbout = document;
     var intervalMilliSeconds = 20; // interval goes here
+
     theElementYouCareAbout.onscroll = function () {
         if (performance.now() - lastTimeScrolled > intervalMilliSeconds) {
             var intervalScroll = setInterval(function () {
                 if (performance.now() - lastTimeScrolled > intervalMilliSeconds) {
-                    doSomething();
+                    stopScrollClass();
                     clearInterval(intervalScroll);
                 }
             }.bind(intervalScroll).bind(intervalMilliSeconds), 100);
@@ -91,9 +90,13 @@
         lastTimeScrolled = performance.now();
     }.bind(intervalMilliSeconds);
 
-    function doSomething() {
+    function stopScrollClass() {
         $('body').removeClass("walking");
     }
+
+    $(window).scroll(function () {
+        $('body').addClass('walking');
+    });
 
     $(window).on('scroll.text', function () {
         if ($(window).scrollTop() > text_anchor) {

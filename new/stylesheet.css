@@ -478,17 +478,18 @@ body {
 }
 
 .adventurer.battle.attack-punch {
-    background-image: url('img/adventurer_attack_punch.gif');
-    animation: attack-adventurer 1400ms;
+    background-image: url('img/adventurer_attack_punch.png');
+    animation: gif-anim steps(6) 1000ms;
+    background-size: 700%;
 }
 
 .adventurer.battle.attack {
     background-image: url('img/adventurer_attack_sword.png');
-    animation: attack-sword steps(5) 1000ms;
+    animation: gif-anim steps(5) 800ms;
     background-size: 600%;
 }
 
-@keyframes attack-sword {
+@keyframes gif-anim {
     0% {
         background-position: 0;
     }
@@ -509,11 +510,11 @@ body {
 }
 
 .enemy.dead {
-    background-image: url(img/enemy_dead.gif);
+    background-image: url('img/enemy_dead.png');
+    background-size: 900%;
+    animation: gif-anim steps(8) 1600ms forwards;
     width: calc(308px / 1.25);
     height: calc(238px / 1.25);
-    background-repeat: no-repeat;
-    background-position: bottom;
 }
 
 @-webkit-keyframes attack-adventurer {

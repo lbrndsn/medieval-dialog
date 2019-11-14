@@ -21,7 +21,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 100;
+let healthBarEnemy = 0;
 
 let mushroomEaten = false;
 let swordGrabbed = false;
@@ -67,7 +67,7 @@ function attack() {
             $('.adventurer.cave-in').addClass('walking');
         }, 2000);
         setTimeout(function () {
-            goToPage("cave.html");
+            // goToPage("cave.html");
         }, 2000);
     }
 }
