@@ -188,7 +188,7 @@
         console.log(heightOrWidth);
         for (let i = 0; i < dialogs.length; i++) {
             const dialog = dialogs[i];
-            if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
+            if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
                 setTimeout(function () {
                     createDialog(dialog.id, dialog.number, dialog.buttons);
                 }, 5000);
