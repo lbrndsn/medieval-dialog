@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>xFriend or foeyy!</title>
+  <title>xxFriend or foeyy!</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="stylesheet-index.css">
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="stylesheet-index.css">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
+  <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
-<div class="intro-scroll">
+  <div class="intro-scroll">
     <div class="background-title">
-        <div class="layer-1"></div>
-        <div class="layer-2"></div>
-        <div class="layer-3"></div>
-        <img src="img/logo.png" id="logo">
+      <div class="layer-1"></div>
+      <div class="layer-2"></div>
+      <div class="layer-3"></div>
+      <img src="img/logo.png" id="logo">
     </div>
     <div class="intro-text">
-        <p id="intro-text-p">
-        </p>
+      <p id="intro-text-p">
+      </p>
 
     </div>
-</div>
-<div id="game" class="game">
+  </div>
+  <div id="game" class="game">
     <div class="kingdom">
-        <div class="king"></div>
-        <div id="dialog1">
-            <p>So, what do you say? Will you help your kingdom one last time???</p>
-        </div>
-        <div class="floor"></div>
-        <div class="chandeliers">
-            <div class="chandelier"><img src="img/chandelier.gif" alt=""/></div>
-            <div class="chandelier"><img src="img/chandelier.gif" alt=""/></div>
-            <div class="chandelier"><img src="img/chandelier.gif" alt=""/></div>
-        </div>
+      <div class="king"></div>
+      <div id="dialog1">
+        <p>So, what do you say? Will you help your kingdom one last time???</p>
+      </div>
+      <div class="floor"></div>
+      <div class="chandeliers">
+        <div class="chandelier"><img src="img/chandelier.gif" alt="" /></div>
+        <div class="chandelier"><img src="img/chandelier.gif" alt="" /></div>
+        <div class="chandelier"><img src="img/chandelier.gif" alt="" /></div>
+      </div>
     </div>
 
-</div>
-<script>
-    $(window).click(function () {
-        $('#medieval-music')[0].play();
+  </div>
+  <script>
+    $(window).click(function() {
+      $('#medieval-music')[0].play();
     });
 
     $(".game").prepend("<div id='hero' class='in-kingdom'></div>");
@@ -53,32 +55,32 @@
     var intro_anchor = $('.intro-scroll').height() - screen.height + 100;
     var text_anchor = $('#intro-text-p').offset().top - screen.height + 100;
 
-    $(window).on('scroll.togame', function () {
+    $(window).on('scroll.togame', function() {
 
-        if ($(window).scrollTop() >= intro_anchor) {
-            $(window).scrollTop(intro_anchor);
-        }
+      if ($(window).scrollTop() >= intro_anchor) {
+        $(window).scrollTop(intro_anchor);
+      }
 
-        $("#yes").click(function () {
-            $("html").css("scroll-behavior", "smooth");
-            intro_anchor += intro_anchor
-        });
+      $("#yes").click(function() {
+        $("html").css("scroll-behavior", "smooth");
+        intro_anchor += intro_anchor
+      });
     });
 
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() > hero_anchor)
-            $('#hero.in-kingdom').addClass("walking");
+    $(window).on('scroll', function() {
+      if ($(window).scrollTop() > hero_anchor)
+        $('#hero.in-kingdom').addClass("walking");
     });
 
-    $(window).on('scroll.text', function () {
-        if ($(window).scrollTop() > text_anchor) {
-            typeText(text, 0);
-            $(window).off('scroll.text');
-        }
+    $(window).on('scroll.text', function() {
+      if ($(window).scrollTop() > text_anchor) {
+        typeText(text, 0);
+        $(window).off('scroll.text');
+      }
     });
 
-    $('#hero').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
-        $(this).addClass("idle");
+    $('#hero').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(e) {
+      $(this).addClass("idle");
     });
 
     //////
@@ -86,127 +88,127 @@
 
     function typeText(text, iteration) {
 
-        if (iteration === text.length) {
-            setTimeout(function () {
-                $('#intro-text-p').append("<a id='yes' href='#game'><button>yes</button></a>");
-                $('#intro-text-p').append("<a id='no' href='credits.html'><button id='no'>no</button></a>");
-            }, 10);
-            return;
-        }
+      if (iteration === text.length) {
+        setTimeout(function() {
+          $('#intro-text-p').append("<a id='yes' href='#game'><button>yes</button></a>");
+          $('#intro-text-p').append("<a id='no' href='credits.html'><button id='no'>no</button></a>");
+        }, 10);
+        return;
+      }
 
-        setTimeout(function () {
-            $('#intro-text-p').text($('#intro-text-p').text() + text[iteration++]);
-            typeText(text, iteration);
-        }, 5);
+      setTimeout(function() {
+        $('#intro-text-p').text($('#intro-text-p').text() + text[iteration++]);
+        typeText(text, iteration);
+      }, 5);
     }
 
     //////
     function disableBodyScrolling() {
-        $('#disableScrollDiv').css({
-            display: "block"
-        });
-        $('body').css({
-            overflow: "hidden"
-        });
+      $('#disableScrollDiv').css({
+        display: "block"
+      });
+      $('body').css({
+        overflow: "hidden"
+      });
     }
 
     function enableBodyScrolling() {
-        $('#disableScrollDiv').css({
-            display: "hidden"
-        });
-        $('body').css({
-            overflow: "auto"
-        });
+      $('#disableScrollDiv').css({
+        display: "hidden"
+      });
+      $('body').css({
+        overflow: "auto"
+      });
     }
 
     function fadePage() {
-        $(document).ready(function () {
-            $('#overlay').animate({
-                opacity: 1,
-            }, 4000, function () {
-            });
-        });
+      $(document).ready(function() {
+        $('#overlay').animate({
+          opacity: 1,
+        }, 4000, function() {});
+      });
     }
 
     function goToPage(page) {
-        window.setTimeout(function () {
-            window.location.href = page;
-        }, 5000);
+      window.setTimeout(function() {
+        window.location.href = page;
+      }, 5000);
     }
 
     function createButton(text, click) {
-        return {
-            text: text,
-            click: function () {
-                $(this).dialog("close");
-                if (click) {
-                    click();
-                }
-            }
+      return {
+        text: text,
+        click: function() {
+          $(this).dialog("close");
+          if (click) {
+            click();
+          }
         }
+      }
     }
 
     const dialogsOpened = [];
 
     function createDialog(dialogId, dialogNumber, buttons) {
-        $("#" + dialogId).dialog({
-            buttons: buttons,
-            open: disableBodyScrolling,
-            close: enableBodyScrolling
-        }).dialog("widget").find(".ui-dialog-title").hide();
-        dialogsOpened.push(dialogNumber);
+      $("#" + dialogId).dialog({
+        buttons: buttons,
+        open: disableBodyScrolling,
+        close: enableBodyScrolling
+      }).dialog("widget").find(".ui-dialog-title").hide();
+      dialogsOpened.push(dialogNumber);
     }
 
     // To check if dialog has been opened
     function dialogHasBeenOpened(number) {
-        return dialogsOpened.includes(number);
+      return dialogsOpened.includes(number);
     }
 
     const dialogOneButtons = [
-        createButton('Yes', function () {
-            fadePage();
-            goToPage('game.html');
-        }),
-        createButton('No', function () {
-            fadePage();
-            goToPage("credits.html");
-        })
+      createButton('Yes', function() {
+        fadePage();
+        goToPage('game.html');
+      }),
+      createButton('No', function() {
+        fadePage();
+        goToPage("credits.html");
+      })
     ];
 
-    const dialogs = [
-        {
-            scrollPosition: 1464,
-            id: 'dialog1',
-            number: 1,
-            buttons: dialogOneButtons
-        }
-    ];
+    const dialogs = [{
+      scrollPosition: 1464,
+      id: 'dialog1',
+      number: 1,
+      buttons: dialogOneButtons
+    }];
 
     function checkScrollPosition(heightOrWidth) {
-        console.log(heightOrWidth);
-        for (let i = 0; i < dialogs.length; i++) {
-            const dialog = dialogs[i];
-            if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
-                setTimeout(function () {
-                    createDialog(dialog.id, dialog.number, dialog.buttons);
-                }, 5000);
-            }
+      console.log(heightOrWidth);
+      for (let i = 0; i < dialogs.length; i++) {
+        const dialog = dialogs[i];
+        if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
+          setTimeout(function() {
+            createDialog(dialog.id, dialog.number, dialog.buttons);
+          }, 5000);
         }
+      }
     }
 
     // Vertical
-    $(window).scroll(function () {
-        const currentHeight = $(window).scrollTop();
-        checkScrollPosition(currentHeight);
+    $(window).scroll(function() {
+      const currentHeight = $(window).scrollTop();
+      checkScrollPosition(currentHeight);
     });
 
     // Horizontal
-    $(window).scroll(function () {
-        const currentWidth = $(window).scrollLeft();
-        checkScrollPosition(currentWidth);
+    $(window).scroll(function() {
+      const currentWidth = $(window).scrollLeft();
+      checkScrollPosition(currentWidth);
     });
-</script>
-<script>console.log("groetjes van Robert");</script>
-<script src="script.js"></script>
+  </script>
+  <script>
+    console.log("groetjes van Robert");
+  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
