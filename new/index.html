@@ -4,10 +4,10 @@
     <title>Friend or foe</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="stylesheet-index.css">
+<!--    <link rel="stylesheet" href="stylesheet-index.css">-->
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -101,17 +101,112 @@
         }, 5);
     }
 
+    //////
+
+    function disableBodyScrolling() {
+        $('#disableScrollDiv').css({
+            display: "block"
+        });
+        $('body').css({
+            overflow: "hidden"
+        });
+    }
+
+    function enableBodyScrolling() {
+        $('#disableScrollDiv').css({
+            display: "hidden"
+        });
+        $('body').css({
+            overflow: "auto"
+        });
+    }
+
+    function fadePage() {
+        $(document).ready(function () {
+            $('#overlay').animate({
+                opacity: 1,
+            }, 4000, function () {
+            });
+        });
+    }
+
+    function goToPage(page) {
+        window.setTimeout(function () {
+            window.location.href = page;
+        }, 5000);
+    }
+
+    function createButton(text, click) {
+        return {
+            text: text,
+            click: function () {
+                $(this).dialog("close");
+                if (click) {
+                    click();
+                }
+            }
+        }
+    }
+
+    const dialogsOpened = [];
+
+    function createDialog(dialogId, dialogNumber, buttons) {
+        $("#" + dialogId).dialog({
+            buttons: buttons,
+            open: disableBodyScrolling,
+            close: enableBodyScrolling
+        }).dialog("widget").find(".ui-dialog-title").hide();
+        dialogsOpened.push(dialogNumber);
+    }
+
+    // To check if dialog has been opened
+    function dialogHasBeenOpened(number) {
+        return dialogsOpened.includes(number);
+    }
+
+    const dialogOneButtons = [
+        createButton('Yes', function () {
+            fadePage();
+            goToPage('battle.html');
+        }),
+        createButton('No', function () {
+            fadePage();
+            goToPage("credits.html");
+        })
+    ];
+
+    const dialogs = [
+        {
+            scrollPosition: 1575,
+            id: 'dialog1',
+            number: 1,
+            buttons: dialogOneButtons
+        }
+    ];
+
     function checkScrollPosition(heightOrWidth) {
         console.log(heightOrWidth);
         for (let i = 0; i < dialogs.length; i++) {
             const dialog = dialogs[i];
-            if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+            if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
                 setTimeout(function () {
                     createDialog(dialog.id, dialog.number, dialog.buttons);
                 }, 5000);
             }
         }
     }
+
+    // Vertical
+    $(window).scroll(function () {
+        const currentHeight = $(window).scrollTop();
+        checkScrollPosition(currentHeight);
+    });
+
+    // Horizontal
+    $(window).scroll(function () {
+        const currentWidth = $(window).scrollLeft();
+        checkScrollPosition(currentWidth);
+    });
 </script>
 <script src="script.js"></script>
 </body>
