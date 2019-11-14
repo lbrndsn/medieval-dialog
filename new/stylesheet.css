@@ -107,13 +107,14 @@ button:focus {
 .cave-background {
     position: absolute;
     right: 0;
-    bottom: 84px;
+    bottom: 50px;
 }
 
 .cave-foreground {
     position: absolute;
+    z-index: 99999;
     right: 0;
-    bottom: 84px;
+    bottom: 70px;
 }
 
 .forest-header-bg {
@@ -413,18 +414,6 @@ body {
     background-color: #ffffff;
 }
 
-.cave-background {
-    position: absolute;
-    right: 0;
-    bottom: 84px;
-}
-
-.cave-foreground {
-    position: absolute;
-    right: 0;
-    bottom: 84px;
-}
-
 .background-container {
     display: block;
     position: absolute;
@@ -491,11 +480,23 @@ body {
 .adventurer.battle.attack-punch {
     background-image: url('img/adventurer_attack_punch.gif');
     animation: attack-adventurer 1400ms;
-    animation-iteration-count: 1;
 }
 
 .adventurer.battle.attack {
-    animation: attack-adventurer 1400ms;
+    background-image: url('img/adventurer_attack_sword.png');
+    animation: attack-sword steps(5) 1000ms;
+    background-size: 600%;
+}
+
+@keyframes attack-sword {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
 }
 
 .adventurer.battle.scream {

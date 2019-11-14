@@ -139,7 +139,7 @@ const dialogTwoButtons = [
 const dialogThreeButtons = [
     createButton('Eat it', function () {
         mushroomEaten = true;
-        createDialog('dialogEatMushroom', 2, [createButton('Trippy!')]);
+        createDialog('dialogEatMushroom', 3, [createButton('Trippy!')]);
     }),
     createButton('I hate mushrooms')
 ];
