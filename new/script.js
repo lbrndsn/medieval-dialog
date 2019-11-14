@@ -21,7 +21,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 00;
+let healthBarEnemy = 100;
 
 let mushroomEaten = false;
 let swordGrabbed = false;
@@ -238,7 +238,7 @@ const dialogs = [
         buttons: dialogFourButtons
     },
     {
-        scrollPosition: 2158.75,
+        scrollPosition: 1450,
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
@@ -249,7 +249,7 @@ function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
     for (let i = 0; i < dialogs.length; i++) {
         const dialog = dialogs[i];
-        if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
+        if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
             createDialog(dialog.id, dialog.number, dialog.buttons);
         }
     }
