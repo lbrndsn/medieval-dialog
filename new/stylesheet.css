@@ -336,6 +336,8 @@ button:focus {
     top: 0;
     left: 0;
     opacity: 0;
+    z-index: 99999999999999;
+    pointer-events: none;
 }
 
 button:focus {
@@ -717,7 +719,7 @@ button:focus {
 .adventurer-container {
     position: absolute;
     bottom: 90px;
-    z-index: 99999;
+    z-index: 9999;
     left: 35%
 }
 
