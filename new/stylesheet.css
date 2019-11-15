@@ -585,12 +585,11 @@ button:focus {
 .cave-floor {
     position: absolute;
     width: 100%;
-    height: 20vh;
-    bottom: -60px;
+    height: 120px;
+    bottom: 0px;
     background-image: url(img/cave_floor.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: cover;
 }
 
 .chest {
