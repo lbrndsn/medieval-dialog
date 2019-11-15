@@ -214,7 +214,7 @@ const dialogFiveButtons = [
 
 const dialogSixButtons = [
     createButton('Fight him!', function () {
-        goToPage("credits.html");
+        goToPage("battle.html");
     })
 ];
 
@@ -279,11 +279,6 @@ $(window).scroll(function () {
     const currentWidth = $(window).scrollLeft();
     checkScrollPosition(currentWidth);
 });
-
-// BATTLE JS
-// $(window).click(function () {
-//     $('#combat-music')[0].play();
-// });
 
 const dialog = dialogs[3];
 createDialog(dialog.id, dialog.number, dialog.buttons);
