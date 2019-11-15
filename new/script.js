@@ -67,7 +67,7 @@ function attack() {
             $('.adventurer.cave-in').addClass('walking');
         }, 2000);
         setTimeout(function () {
-            // goToPage("cave.html");
+            goToPage("cave.html");
         }, 2000);
     }
 }
