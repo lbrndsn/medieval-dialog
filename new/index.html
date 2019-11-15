@@ -6,8 +6,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script>
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            $('.intro-scroll .background-title img').css('margin-top', -(scrollTop * 0.2));
+            $('.intro-scroll .background-title .layer-1').css('bottom', -(scrollTop * 0.6));
+            $('.intro-scroll .background-title .layer-2').css('bottom', -(scrollTop * 0.4));
+            $('.intro-scroll .background-title .layer-3').css('bottom', -(scrollTop * 0.3));
+            $('.intro-scroll .background-title .layer-4').css('margin-bottom', -(scrollTop * 0.4));
+            $('.intro-scroll .background-title .layer-5').css('margin-bottom', -(scrollTop * 0.3));
+            $('.intro-scroll .background-title .layer-6').css('margin-bottom', -(scrollTop * 0.3));
+        });
+    </script>
 </head>
 <body>
 <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
@@ -44,6 +55,7 @@
     $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
     $(".adventurer-container").append("<div class='adventurer in-kingdom'></div>");
 
+
     $(window).click(function () {
         $('#medieval-music')[0].play();
     });
@@ -70,7 +82,9 @@
 
     $(window).on('scroll.text', function () {
         if ($(window).scrollTop() > text_anchor) {
-            typeText(text, 0);
+            setTimeout(function () {
+                typeText(text, 0);
+            }, 1000)
             $(window).off('scroll.text');
         }
     });
@@ -83,6 +97,7 @@
     //////
 
     var text = "An evil enemy stole all the gold from your village... As a last resort, the king came to you, the retired village hero. He went all around the kingdom, but no fighter was as brave as you. Will you help him one last time?";
+
 
     function typeText(text, iteration) {
         if (iteration === text.length) {
@@ -97,7 +112,7 @@
         setTimeout(function () {
             $('#intro-text-p').text($('#intro-text-p').text() + text[iteration++]);
             typeText(text, iteration);
-        }, 5);
+        }, 75);
     }
 
 </script>

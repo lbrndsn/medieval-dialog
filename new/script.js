@@ -261,7 +261,7 @@ function checkScrollPosition(heightOrWidth) {
                 } else {
                     setTimeout(function () {
                         createDialog(dialog.id, dialog.number, dialog.buttons);
-                    }, 1000);
+                    }, 9000);
                 }
             } else {
                 if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {

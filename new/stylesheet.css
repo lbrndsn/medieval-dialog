@@ -42,6 +42,7 @@ p, span, h1, h2, h3, h4, a {
     position: relative;
     background: url("img/intro/intro_bg.png");
     background-size: contain;
+    overflow: hidden;
     height: 100vh;
     width: 100%;
     top: 0;
