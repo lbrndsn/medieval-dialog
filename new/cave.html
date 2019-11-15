@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cave</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -13,17 +12,17 @@
         $(window).scroll(function () {
             var scrollTop = $(this).scrollTop();
             $('.background-title .layer-1').css('top', +(scrollTop * 0.6));
-            $('.background-title .layer-2').css('top', +(scrollTop * 0.2));
-            $('.background-title .layer-3').css('top', +(scrollTop * 0.2));
-            $('.background-title .layer-4').css('top', +(scrollTop * 0.3));
-            $('.background-title .layer-5').css('top', +(scrollTop * 0.4));
+            $('.background-title .layer-2').css('top', +(scrollTop * 0.4));
+            $('.background-title .layer-3').css('top', +(scrollTop * 0.5));
+            $('.background-title .layer-4').css('top', +(scrollTop * 0.4));
+            $('.background-title .layer-5').css('top', +(scrollTop * 0.7));
         });
 
         function scrollBottom() {
             window.scrollTo(0, 99999);
         }
 
-        if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false);
+        if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
         else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
     </script>
 
