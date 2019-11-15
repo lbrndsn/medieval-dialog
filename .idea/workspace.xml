@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="8e6f6b55-eda5-4539-99bc-5baba6bc0158" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/img/obj_chest.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/new/cave.html" beforeDir="false" afterPath="$PROJECT_DIR$/new/cave.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/new/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/new/stylesheet.css" afterDir="false" />
+>>>>>>> master
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/new/script.js" afterDir="false" />
 >>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +85,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
 =======
   <component name="FindInProjectRecents">
@@ -118,6 +124,8 @@
     <option name="width" value="1440" />
     <option name="height" value="824" />
   </component>
+=======
+>>>>>>> master
   <component name="ProjectId" id="1TcXcVvYdG5dtmdi1XNkadWFhNp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -186,6 +194,7 @@
       <workItem from="1573482556876" duration="1900000" />
       <workItem from="1573726731413" duration="107000" />
       <workItem from="1573760446185" duration="59000" />
+      <workItem from="1573806198398" duration="315000" />
     </task>
     <servers />
   </component>
@@ -346,7 +355,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

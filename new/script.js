@@ -188,24 +188,24 @@ const dialogFiveButtons = [
             $('.adventurer.in-cave').addClass('evil');
         }, 1000);
 
-        // setTimeout(function () {
-        //     if (couldUseIsClicked === true) {
-        //         var percentageToScroll = 100;
-        //         var percentage = percentageToScroll / 100;
-        //         var height = $(document).scrollTop();
-        //         var scrollAmount = height * (1 - percentage);
-        //
-        //         $('html,body').animate({
-        //             scrollTop: scrollAmount
-        //         }, 5000, function () {
-        //         });
-        //     }
-        // }, 5500);
-        //
-        // setTimeout(function () {
-        //     fadePage();
-        //     goToPage("credits.html");
-        // }, 10000);
+        setTimeout(function () {
+            if (couldUseIsClicked === true) {
+                var percentageToScroll = 100;
+                var percentage = percentageToScroll / 100;
+                var height = $(document).scrollTop();
+                var scrollAmount = height * (1 - percentage);
+
+                $('html,body').animate({
+                    scrollTop: scrollAmount
+                }, 5000, function () {
+                });
+            }
+        }, 5500);
+
+        setTimeout(function () {
+            fadePage();
+            goToPage("credits.html");
+        }, 10000);
     })
 ];
 
@@ -255,9 +255,13 @@ function checkScrollPosition(heightOrWidth) {
             }
         } else {
             if (dialog.number === 5) {
-                setTimeout(function () {
-                    createDialog(dialog.id, dialog.number, dialog.buttons);
-                }, 1000);
+                if (dialogsOpened.includes(5)) {
+                    return
+                } else {
+                    setTimeout(function () {
+                        createDialog(dialog.id, dialog.number, dialog.buttons);
+                    }, 1000);
+                }
             } else {
                 if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
                     createDialog(dialog.id, dialog.number, dialog.buttons);
