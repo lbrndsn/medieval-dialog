@@ -1,0 +1,333 @@
+.slide {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0px;
+  width: 30em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 200vw;
+
+}
+.one {
+  background: #82b6ff;
+  z-index: 3;
+}
+.two {
+  background: #82b6ff;
+  z-index: 2;
+}
+
+.ui-widget-content{
+  background: transparent;
+}
+
+.header-bg {
+  position: fixed;
+  background-image: url("img/Sky.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header-bg2 {
+  position: absolute;
+  background-image: url("img/clouds.png");
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 140vw;
+}
+
+.header-bg3 {
+  position: absolute;
+  background-image: url("img/Mountain.png");
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 170vw;
+  background-position: bottom;
+}
+
+.header-bg4 {
+  position: absolute;
+  background-image: url("img/Far woods.png");
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 185vw;
+  background-position: bottom;
+}
+
+.boom {
+  position: absolute;
+  background-image: url(img/boom.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-position: 70% 65%;
+  margin-left: 20vw;
+}
+
+.mushroom {
+  position: absolute;
+  background-image: url(img/mushroom.png);
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  background-size: 80%;
+  margin-left: 120vw;
+  margin-top: 80vh;
+}
+
+.adventurer.walking {
+    background-image: url('img/adventurer_walking.gif');
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    z-index: 4;
+}
+
+.header-bg5 {
+  position: absolute;
+  background-image: url("img/Tiles.png");
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 200vw;
+  background-position: bottom;
+}
+
+.header2-bg2 {
+  position: absolute;
+  width: 243vw;
+  height: 100vh;
+  background-image: url(img/Layer_0009_2.png);
+  margin-left: 300vh;
+  background-position: bottom;
+  background-size: 45%;
+  background-repeat: repeat-x;
+}
+
+.header2-bg3 {
+  position: absolute;
+  width: 269vw;
+  height: 100vh;
+  background-image: url(img/Layer_0008_3.png);
+  margin-left: 170vw;
+  background-position: bottom;
+  background-size: 50%;
+  background-repeat: repeat-x;
+}
+
+.header2-bg4 {
+  position: absolute;
+  width: 300vw;
+  height: 100vh;
+  background-image: url(img/Layer_0006_4.png);
+  margin-left: 185vw;
+  background-position: bottom;
+  background-size: 47%;
+  background-repeat: repeat-x;
+}
+
+.header2-bg5 {
+  position: absolute;
+  width: 284.9vw;
+  height: 100vh;
+  background-image: url(img/Layer_0005_5.png);
+  margin-left: 200vw;
+  background-position: bottom;
+  background-size: 50%;
+  background-repeat: repeat-x;
+}
+
+.header2-bg6 {
+  position: absolute;
+  width: 330.15vw;
+  height: 100vh;
+  background-image: url(img/Layer_0003_6.png);
+  margin-left: 200vw;
+  background-position: bottom;
+  background-size: 44%;
+  background-repeat: repeat-x;
+}
+
+.transition-fence {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(img/Layer_0002_7.png);
+  margin-left: 107vw;
+  background-position: bottom;
+  background-size: 80%;
+  transform: rotate(90deg);
+  z-index: 5;
+}
+
+.header2-bg8 {
+  position: absolute;
+  background-image: url(img/Layer_0001_8.png);
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 330.15vw;
+  margin-left: 200vw;
+  background-position: bottom;
+  background-size: 43%;
+}
+
+
+.sun {
+  position: absolute;
+  background-image: url(img/Layer_0007_Lights.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 200vw;
+  margin-left: 230vw;
+  background-position: top;
+  background-size: 40%;
+}
+
+.sword {
+  position: absolute;
+  background-image: url(img/sword.png);
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  background-position: 65%;
+  margin-left: 310vw;
+  margin-top: 80vh;
+  background-size: 90%;
+  transform: rotate(45deg);
+}
+
+.enemy {
+  position: absolute;
+  background-image: url(img/enemy_idle.gif);
+  background-repeat: no-repeat;
+  height: 260px;
+  width: 260px;
+  background-position: 90%;
+  margin-left: 470vw;
+  margin-top: 58vh;
+  background-size: 90%;
+}
+
+.header2-bg9 {
+  position: absolute;
+  background-image: url(img/Layer_0000_9.png);
+  background-repeat: repeat-x;
+  height: 100vh;
+  width: 330.15vw;
+  margin-left: 200vw;
+  background-position: bottom;
+  background-size: 20%;
+}
+
+.adventurer{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(img/adventurer_idle.gif);
+  background-repeat: no-repeat;
+  background-position: 50% 80%;
+  z-index: 4;
+}
+
+
+
+#disableScrollDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+
+button:focus {
+  outline: 0;
+}
+
+.ui-dialog-titlebar {
+  display: none;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+  position: fixed !important;
+  width: 300px;
+  height: auto;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 139%;
+}
+
+.ui-dialog-buttonset {
+  margin-right: -5px;
+  white-space: nowrap;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+
+  border-width: 10px;
+  padding: 0 10px;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  font-size: 0.8em;
+  line-height: 22px;
+  border-style: solid;
+  border-image-source: url(border-image-golden2.png);
+  border-image-repeat: repeat;
+  border-image-slice: 8 8 8 8;
+  border-image-width: 18px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: url(background-image-golden2.png) repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+}
+
+#dialog1, #dialog2, #dialog3, #dialog4, #dialog5, #dialog6, #dialogGrabSword, #dialogEatMushroom {
+  display: none;
+  border-width: 15px;
+  padding: 12px;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  font-size: 0.8em;
+  line-height: 22px;
+  border-style: solid;
+  border-image-source: url(border-image-golden2.png);
+  border-image-repeat: repeat;
+  border-image-slice: 8 8 8 8;
+  border-image-width: 18px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: url(background-image-golden2.png) repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+  width: 442px;
+}
