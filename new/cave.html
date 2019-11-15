@@ -33,7 +33,7 @@
 <div id="overlay"></div>
 
 <script>
-    $('body').append("<div class='game'></div>");
+    $('body').prepend("<div class='game'></div>");
     $(".game").append("<div class='background-title'></div>");
     $(".game .background-title").append("<div class='layer-1'></div>");
     $(".game .background-title").append("<div class='layer-2'></div>");
@@ -53,6 +53,8 @@
 
     $('.adventurer').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
         $(this).removeClass("walking");
+        $(this).addClass("morph");
+
 
     });
 </script>

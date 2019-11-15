@@ -211,6 +211,17 @@ img {
     opacity: 1;
 }
 
+.adventurer.morph {
+    transition: 1000ms ease;
+}
+
+.adventurer.morph.evil {
+    width: calc(231px / 1.25);
+    height: calc(252px / 1.25);
+    transform: scaleX(-1);
+    background-image: url('img/anims/enemy_idle.gif');
+}
+
 .enemy {
     position: relative;
     width: calc(231px / 1.25);
@@ -335,19 +346,14 @@ button:focus {
     display: none;
 }
 
-.ui-widget.ui-widget-content {
-    border: none;
-    position: fixed !important;
-    width: 300px;
-    height: auto;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%);
-}
-
 .ui-widget.ui-widget-content.dialog4 {
     top: 30% !important;
     width: auto !important;
+}
+
+.ui-widget.ui-widget-content.dialog5 {
+    width: 350px !important;
+    z-index: 99999999;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
@@ -591,15 +597,16 @@ button:focus {
     position: absolute;
     bottom: 95px;
     left: 50%;
-    width: 95px;
-    height: 77px;
-    background-image: url('img/obj_chest.png');
+    width: calc(43px * 3);
+    height: calc(32px * 3);
+    background-image: url('img/chest.png');
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .chest.open {
-    background-image: url('img/chest_open.gif');
+    background-image: url(img/chest_open.gif);
 }
 
 .background-container {
