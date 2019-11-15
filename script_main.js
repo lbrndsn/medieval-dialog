@@ -214,6 +214,7 @@ const dialogFiveButtons = [
 
 const dialogSixButtons = [
     createButton('Fight him!', function () {
+        fadePage();
         goToPage("battle.html");
     })
 ];
@@ -227,13 +228,13 @@ const dialogs = [
         buttons: dialogOneButtons
     },
     {
-        scrollPosition: 2600,
+        scrollPosition: 3360,
         id: 'dialog2',
         number: 2,
         buttons: dialogTwoButtons
     },
     {
-        scrollPosition: 660,
+        scrollPosition: 440,
         id: 'dialog3',
         number: 3,
         buttons: dialogThreeButtons
@@ -251,7 +252,7 @@ const dialogs = [
         buttons: dialogFiveButtons
     },
     {
-        scrollPosition: 4153,
+        scrollPosition: 5000,
         id: 'dialog6',
         number: 6,
         buttons: dialogSixButtons
@@ -262,7 +263,7 @@ function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
     for (let i = 0; i < dialogs.length; i++) {
         const dialog = dialogs[i];
-        if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
+        if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
             createDialog(dialog.id, dialog.number, dialog.buttons);
         }
     }
@@ -279,6 +280,11 @@ $(window).scroll(function () {
     const currentWidth = $(window).scrollLeft();
     checkScrollPosition(currentWidth);
 });
+
+// BATTLE JS
+// $(window).click(function () {
+//     $('#combat-music')[0].play();
+// });
 
 const dialog = dialogs[3];
 createDialog(dialog.id, dialog.number, dialog.buttons);

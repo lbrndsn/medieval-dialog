@@ -32,8 +32,6 @@ function getRandomInt(min, max) {
 }
 
 function attack() {
-    // TODO add attack visual for 1.5/2 sec
-
     let randomInt = getRandomInt(5, 31);
     if (swordGrabbed) {
         randomInt = Math.round(randomInt * 0.9);
@@ -51,14 +49,27 @@ function attack() {
         disableBodyScrolling();
         setTimeout(function () {
             healthBarHero = healthBarHero - getRandomInt(5, 21);
-            $('#hero-health-bar').css("width", "calc(" + healthBarHero + "% - 22px)");
+            $('#adventurer-health-bar').css("width", "calc(" + healthBarHero + "% - 22px)");
+            $('.enemy').addClass("attack");
             console.log(healthBarHero);
         }, 2000);
         setTimeout(function () {
             $("#dialog4").dialog("open");
         }, 4000);
     } else {
-        goToPage("cave.html");
+        $('.enemy.battle').removeClass('battle');
+        $('.enemy').addClass('dead');
+        setTimeout(function () {
+            $('.enemy-container .health-bar-container').remove();
+            $('.adventurer-container .health-bar-container').remove();
+            $('.adventurer.battle').removeClass('battle');
+            $('.adventurer').addClass('cave-in');
+            $('.adventurer.cave-in').addClass('walking');
+        }, 2000);
+        setTimeout(function () {
+            fadePage();
+            goToPage("cave.html");
+        }, 2000);
     }
 }
 
@@ -110,7 +121,7 @@ function dialogHasBeenOpened(number) {
 const dialogOneButtons = [
     createButton('Yes', function () {
         fadePage();
-        goToPage('game.html');
+        goToPage('main_game.html');
     }),
     createButton('No', function () {
         fadePage();
@@ -129,7 +140,7 @@ const dialogTwoButtons = [
 const dialogThreeButtons = [
     createButton('Eat it', function () {
         mushroomEaten = true;
-        createDialog('dialogEatMushroom', 2, [createButton('Trippy!')]);
+        createDialog('dialogEatMushroom', 3, [createButton('Trippy!')]);
     }),
     createButton('I hate mushrooms')
 ];
@@ -137,12 +148,15 @@ const dialogThreeButtons = [
 const dialogFourButtons = [
     createButton('Use sword', function () {
         attack();
+        $('.adventurer.battle').addClass("attack");
     }),
     createButton('Slap him', function () {
         attack();
+        $('.adventurer.battle').addClass("attack-punch");
     }),
     createButton('Scream at him', function () {
         attack();
+        $('.adventurer.battle').addClass("scream");
     })
 ];
 
@@ -169,14 +183,10 @@ const dialogFiveButtons = [
     }),
     createButton('I could use it...', function () {
         couldUseIsClicked = true;
-        $('.chestOpen').fadeIn(0, function(){
-            $('.chest').fadeOut(0);
-        });
+        $('.chest').addClass("open");
 
         setTimeout(function () {
-            $('.adventurer-cave').fadeOut(2000, function(){
-                $('.evilAdventurer').fadeIn(2000);
-            });
+            $('.adventurer.in-cave').addClass('evil');
         }, 1000);
 
         setTimeout(function () {
@@ -203,7 +213,7 @@ const dialogFiveButtons = [
 // Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
-        scrollPosition: 200,
+        scrollPosition: 1300,
         id: 'dialog1',
         number: 1,
         buttons: dialogOneButtons
@@ -227,7 +237,7 @@ const dialogs = [
         buttons: dialogFourButtons
     },
     {
-        scrollPosition: 2158.75,
+        scrollPosition: 1850,
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
@@ -238,8 +248,26 @@ function checkScrollPosition(heightOrWidth) {
     console.log(heightOrWidth);
     for (let i = 0; i < dialogs.length; i++) {
         const dialog = dialogs[i];
-        if (heightOrWidth > dialog.scrollPosition - 10 && heightOrWidth < dialog.scrollPosition + 10 && dialogHasBeenOpened(dialog.number) === false) {
-            createDialog(dialog.id, dialog.number, dialog.buttons);
+        if (dialog.number === 1) {
+            if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+                setTimeout(function () {
+                    createDialog(dialog.id, dialog.number, dialog.buttons);
+                }, 5000);
+            }
+        } else {
+            if (dialog.number === 5) {
+                if (dialogsOpened.includes(5)) {
+                    return
+                } else {
+                    setTimeout(function () {
+                        createDialog(dialog.id, dialog.number, dialog.buttons);
+                    }, 9000);
+                }
+            } else {
+                if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+                    createDialog(dialog.id, dialog.number, dialog.buttons);
+                }
+            }
         }
     }
 }
@@ -257,7 +285,7 @@ $(window).scroll(function () {
 });
 
 // BATTLE JS
-$(window).click(function() {
+$(window).click(function () {
     $('#combat-music')[0].play();
 });
 

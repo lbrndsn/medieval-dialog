@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GETTING STARTED WITH BRACKETS</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="styles_main.css">
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-        $(document).ready(function(){
-            $("html, body").scrollLeft( 0 );
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GETTING STARTED WITH BRACKETS</title>
+    <meta name="description" content="An interactive getting started guide for Brackets.">
+    <!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <link rel="stylesheet" href="styles_main.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("html, body").scrollLeft(0);
         });
 
-        $(window).scroll(function()  {
+        $(window).scroll(function () {
             var scrollLeft = $(this).scrollLeft();
-            $('.header-bg').css('left', -(scrollLeft * 0.1));
-            $('.header-bg2').css('left', -(scrollLeft * 0.3));
-            $('.header-bg3').css('left', -(scrollLeft * 0.5));
-            $('.header-bg4').css('left', -(scrollLeft * 0.7));
-            $('.boom').css('left', -(scrollLeft * 0.8));
-            $('.header-bg5').css('left', -(scrollLeft * 0.9));
-            $('.mushroom').css('left', -(scrollLeft * 0.9));
+            $('.header-bg').css('margin-left', -(scrollLeft * 0.1));
+            $('.header-bg2').css('margin-left', -(scrollLeft * 0.3));
+            $('.header-bg3').css('margin-left', -(scrollLeft * 0.5));
+            $('.header-bg4').css('margin-left', -(scrollLeft * 0.7));
+            $('.boom').css('margin-left', -(scrollLeft * 0.8));
+            $('.header-bg5').css('margin-left', -(scrollLeft * 0.9));
+            $('.mushroom').css('margin-left', -(scrollLeft * 0.9));
 
-            $('.header2-bg').css('left', -(scrollLeft * 0.1));
-            $('.header2-bg1').css('left', -(scrollLeft * 0.1));
-            $('.header2-bg2').css('left', -(scrollLeft * 0.3));
-            $('.header2-bg3').css('left', -(scrollLeft * 0.5));
-            $('.header2-bg4').css('left', -(scrollLeft * 0.7));
-            $('.header2-bg5').css('left', -(scrollLeft * 0.7));
-            $('.header2-bg6').css('left', -(scrollLeft * 0.9));
+            $('.header2-bg').css('margin-left', -(scrollLeft * 0.1));
+            $('.header2-bg1').css('margin-left', -(scrollLeft * 0.1));
+            $('.header2-bg2').css('margin-left', -(scrollLeft * 0.3));
+            $('.header2-bg3').css('margin-left', -(scrollLeft * 0.5));
+            $('.header2-bg4').css('margin-left', -(scrollLeft * 0.7));
+            $('.header2-bg5').css('margin-left', -(scrollLeft * 0.7));
+            $('.header2-bg6').css('margin-left', -(scrollLeft * 0.9));
 
-            $('.transition-fence').css('left', -(scrollLeft * 0.6));
 
-            $('.header2-bg8').css('left', -(scrollLeft * 0.9));
-            $('.sun').css('left', -(scrollLeft * 0.9));
-            $('.sword').css('left', -(scrollLeft * 0.9));
-            $('.enemy').css('left', -(scrollLeft * 0.9));
-            $('.header2-bg9').css('left', -(scrollLeft * 0.9));
+            $('.header2-bg8').css('margin-left', -(scrollLeft * 0.9));
+            $('.sun').css('margin-left', -(scrollLeft * 0.9));
+            $('.sword').css('margin-left', -(scrollLeft * 0.9));
+            $('.enemy').css('margin-left', -(scrollLeft * 0.9));
+            $('.header2-bg9').css('margin-left', -(scrollLeft * 0.9));
         });
 
-        $(window).click(function() {
+        $(window).click(function () {
             $('#medieval-music')[0].play();
         });
 
         $(window).on('scroll', function () {
             var scrollLeft = $(window).scrollLeft();
             console.log(scrollLeft);
-            if(scrollLeft >= 630 && scrollLeft <= 675) {
+            if (scrollLeft >= 630 && scrollLeft <= 675) {
                 console.log("SUCCESS");
             }
         });
@@ -76,61 +76,64 @@
         $(window).scroll(function () {
             $('.adventurer').addClass('walking');
         });
-        </script>
-        
-    </head>
-    <body>
-        <div class="outer-wrapper">
-            <div class="wrapper">
-                <div class="adventurer"></div>
-                <div class="slide one">
-                    <div class="header-bg2"></div>
-                    <div class="header-bg3"></div>
-                    <div class="header-bg4"></div>
-                    <div class="boom"></div>
-                    <div class="header-bg5"></div>
-                    <div class="mushroom"></div>
-                </div>
-                <div class="slide two">
+    </script>
 
-                    <div class="header2-bg2"></div>
-                    <div class="header2-bg3"></div>
-                    <div class="header2-bg4"></div>
-                    <div class="header2-bg5"></div>
-                    <div class="header2-bg6"></div>
-                    <div class="header2-bg8"></div>
-                    <div class="sun"></div>
-                    <div class="sword"></div>
-                    <div class="enemy"></div>
-                    <div class="header2-bg9"></div>
-                </div>
-                <div class="transition-fence"></div>
-            </div>
+</head>
+<body class="main-game">
+<div id="overlay"></div>
+<div class="outer-wrapper">
+    <div class="wrapper">
+        <div class="adventurer-container main-game">
+            <div class="adventurer"></div>
         </div>
 
-        <div id="dialog2">
-            <p>Wow, a magic sword... It could help us defeat the enemy! Or it could be cursed...</p>
+        <div class="slide one">
+            <div class="header-bg2"></div>
+            <div class="header-bg3"></div>
+            <div class="header-bg4"></div>
+            <div class="boom"></div>
+            <div class="header-bg5"></div>
+            <div class="mushroom"></div>
         </div>
+        <div class="slide two">
 
-        <div id="dialogGrabSword">
-            <p>Seems like the sword is cursed... You'll do less damage when using it.</p>
+            <div class="header2-bg2"></div>
+            <div class="header2-bg3"></div>
+            <div class="header2-bg4"></div>
+            <div class="header2-bg5"></div>
+            <div class="header2-bg6"></div>
+            <div class="header2-bg8"></div>
+            <div class="sun"></div>
+            <div class="sword"></div>
+            <div class="enemy"></div>
+            <div class="header2-bg9"></div>
         </div>
+        <div class="transition-fence"></div>
+    </div>
+</div>
 
-        <div id="dialog3">
-            <p>A mushroom! You are feeling a bit sluggish...</p>
-        </div>
+<div id="dialog2">
+    <p>Wow, a magic sword... It could help us defeat the enemy! Or it could be cursed...</p>
+</div>
 
-        <div id="dialogEatMushroom">
-            <p>Wow, it gave you extra strength! Maybe you'll defeat the enemy faster now?</p>
-        </div>
+<div id="dialogGrabSword">
+    <p>Seems like the sword is cursed... You'll do less damage when using it.</p>
+</div>
 
-        <div id="dialog6">
-            <p>I have Found the Enemy!</p>
-        </div>
+<div id="dialog3">
+    <p>A mushroom! You are feeling a bit sluggish...</p>
+</div>
 
-        <script src="script_main.js"></script>
-        <script src="jquery.scrollstop.min.js"></script>
-        <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
-    </body>
+<div id="dialogEatMushroom">
+    <p>Wow, it gave you extra strength! Maybe you'll defeat the enemy faster now?</p>
+</div>
+<div id="dialog6">
+    <p>I have Found the Enemy!</p>
+</div>
+
+<script src="script_main.js"></script>
+<!--<script src="jquery.scrollstop.min.js"></script>-->
+<audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
+</body>
 </html>
 
