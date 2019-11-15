@@ -21,7 +21,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 100;
+let healthBarEnemy = 0;
 
 let mushroomEaten = false;
 let swordGrabbed = false;
@@ -67,6 +67,7 @@ function attack() {
             $('.adventurer.cave-in').addClass('walking');
         }, 2000);
         setTimeout(function () {
+            fadePage();
             goToPage("cave.html");
         }, 2000);
     }
@@ -120,7 +121,7 @@ function dialogHasBeenOpened(number) {
 const dialogOneButtons = [
     createButton('Yes', function () {
         fadePage();
-        goToPage('game.html');
+        goToPage('battle.html');
     }),
     createButton('No', function () {
         fadePage();
