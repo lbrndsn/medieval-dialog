@@ -14,21 +14,22 @@ body {
     color: #deab3b;
 }
 
+body.main-game {
+    background-color: black;
+}
+
 p, span, h1, h2, h3, h4, a {
     margin: 0;
     padding: 0;
     color: inherit;
 }
 
-
 .game {
     height: 100vh;
     position: relative;
 }
 
-
 /* INDEX.HTML */
-
 #logo {
     width: 45%;
     left: 50%;
@@ -173,7 +174,6 @@ button:after {
     content: none !important;
 }
 
-
 button:hover {
     background-image: url(img/button-mid-hover.png);
 }
@@ -190,6 +190,222 @@ img {
     width: 100%;
 }
 
+/* MAIN_GAME.HTML */
+.slide {
+    position: relative;
+    width: calc(1680px * 2);
+    height: 100vh;
+    float: left;
+}
+
+.outer-wrapper {
+    height: 100vh;
+    width: calc(1680px * 4);
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    height: inherit;
+}
+
+.adventurer-container.main-game {
+    position: fixed !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slide.one {
+    background: #82b6ff;
+    z-index: 3;
+    overflow-x: hidden;
+}
+
+.two {
+    background: #82b6ff;
+    z-index: 2;
+}
+
+.ui-widget-content {
+    background: transparent;
+}
+
+.header-bg {
+    position: fixed;
+    background-image: url("img/Sky.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header-bg2 {
+    position: absolute;
+    background-image: url(img/clouds.png);
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 100%;
+}
+
+.header-bg3 {
+    position: absolute;
+    background-image: url(img/Mountain.png);
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 100%;
+    background-position: bottom;
+}
+
+.header-bg4 {
+    position: absolute;
+    background-image: url(img/Far_woods.png);
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 200%;
+    background-position: bottom;
+}
+
+.boom {
+    position: absolute;
+    background-image: url(img/boom.png);
+    background-repeat: no-repeat;
+    height: 562px;
+    width: 565px;
+    bottom: 100px;
+    left: 25%;
+}
+
+.mushroom {
+    position: absolute;
+    background-image: url(img/mushroom.png);
+    background-repeat: no-repeat;
+    height: calc(182px / 3);
+    width: calc(182px / 3);
+    background-size: contain;
+    bottom: 100px;
+    left: 50%;
+}
+
+.header-bg5 {
+    position: absolute;
+    background-image: url(img/Tiles.png);
+    background-repeat: repeat-x;
+    height: 220px;
+    bottom: 0;
+    width: 300%;
+}
+
+.header2-bg2 {
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    background-image: url(img/Layer_0009_2.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.header2-bg3 {
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    background-image: url(img/Layer_0008_3.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.header2-bg4 {
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    background-image: url(img/Layer_0006_4.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.header2-bg5 {
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    background-image: url(img/Layer_0005_5.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.header2-bg6 {
+    position: absolute;
+    width: 300%;
+    height: 100vh;
+    background-image: url(img/Layer_0003_6.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.transition-fence {
+    position: absolute;
+    width: 277px;
+    height: 100vh;
+    top: 0;
+    background-image: url(img/Layer_0002_7.png);
+    left: calc(1680px * 2);
+    transform: translateX(-50%);
+    z-index: 999999;
+}
+
+.header2-bg8 {
+    position: absolute;
+    background-image: url(img/Layer_0001_8.png);
+    background-repeat: repeat-x;
+    height: 190px;
+    bottom: 0;
+    width: 300%;
+    background-position: bottom;
+    background-size: contain;
+}
+
+.header2-bg9 {
+    position: absolute;
+    background-image: url(img/Layer_0000_9.png);
+    background-repeat: repeat-x;
+    height: 200px;
+    width: 300%;
+    background-position: bottom;
+    background-size: contain;
+    bottom: -50px;
+    z-index: 9999999;
+}
+
+.sun {
+    position: absolute;
+    background-image: url(img/Layer_0007_Lights.png);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+}
+
+.sword {
+    position: absolute;
+    background-image: url(img/sword.png);
+    background-repeat: no-repeat;
+    height: 100px;
+    background-size: contain;
+    width: 100px;
+    transform: rotate(45deg);
+    bottom: 100px;
+    z-index: 99999999;
+    left: 115%;
+}
+
+.slide.two .enemy {
+    bottom: 90px;
+    position: absolute;
+    left: 210%;
+}
 
 /* ADVENTURER & ENEMY IDLE */
 .adventurer {
@@ -234,10 +450,7 @@ img {
     top: 70%;
 }
 
-/* */
-
 /* ADVENTURER WALKING */
-
 .adventurer.walking {
     background-image: url('img/anims/adventurer_walking.gif');
 }
@@ -326,9 +539,7 @@ button:focus {
     display: none;
 }
 
-/* */
-
-
+/* DIALOGS */
 #overlay {
     background-color: #000000;
     position: fixed;
@@ -416,7 +627,6 @@ button:focus {
     background-position: center;
 }
 
-
 /* BATTLE */
 .cave-background {
     position: absolute;
@@ -459,7 +669,6 @@ button:focus {
 
 .forest-header-bg7 {
     background-image: url("img/Layer_0002_7.png");
-
 }
 
 .forest-header-bg8 {
@@ -472,7 +681,6 @@ button:focus {
     z-index: 9999999;
     background-size: contain !important;
 }
-
 
 .health-bar-outline {
     width: 120px;
@@ -500,7 +708,7 @@ button:focus {
     position: fixed;
     width: 100%;
     height: 300%;
-    background-image: url("img/parallax-mountain-bg.png");
+    background-image: url("img/mountain-bg.png");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100%;
@@ -510,7 +718,7 @@ button:focus {
     position: fixed;
     width: 100%;
     height: 300%;
-    background-image: url("img/parallax-mountain-montain-far.png");
+    background-image: url("img/mountain-far.png");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100%;
@@ -520,7 +728,7 @@ button:focus {
     position: fixed;
     width: 100%;
     height: 300%;
-    background-image: url("img/parallax-mountain-mountains.png");
+    background-image: url("img/mountain.png");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 220%;
@@ -681,7 +889,6 @@ button:focus {
 }
 
 /* ADVENTURER BATTLE */
-
 .adventurer.battle {
     transition: left 500ms ease;
     left: 0;
@@ -700,12 +907,6 @@ button:focus {
     background-size: 600%;
     left: 60%;
 }
-
-.adventurer.battle.scream {
-
-}
-
-/* */
 
 /* ENEMY BATTLE */
 .enemy.battle {
@@ -749,7 +950,6 @@ button:focus {
     transform: translateX(-50%);
 }
 
-
 .health-bar {
     height: calc(100% - 3px);
     width: calc(100% - 28px);
@@ -786,7 +986,7 @@ button:focus {
 
 .background-title {
     position: relative;
-    background: url("../img/background.png");
+    background: url("img/background.png");
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -832,7 +1032,6 @@ button:focus {
 }
 
 .background-title .layer-5 {
-
     background-image: url("img/mountain-trees.png");
 }
 
@@ -842,13 +1041,11 @@ button:focus {
 }
 
 /* ANIMATIONS WALKING */
-
 @-webkit-keyframes walk-cave {
     0% {
         right: 50vw;
         opacity: 1;
     }
-
     100% {
         right: 0;
         opacity: 1;
@@ -860,7 +1057,6 @@ button:focus {
         margin-left: 0;
         opacity: 1;
     }
-
     100% {
         margin-left: 1500px;
         opacity: 1;
@@ -873,7 +1069,6 @@ button:focus {
         left: -200px;
         opacity: 1;
     }
-
     100% {
         left: 50%;
         opacity: 1;
@@ -885,7 +1080,6 @@ button:focus {
         margin-left: 500px;
         opacity: 1;
     }
-
     100% {
         margin-left: 0;
         opacity: 1;
@@ -897,13 +1091,11 @@ button:focus {
         right: 250px;
         opacity: 1;
     }
-
     100% {
         right: -200px;
         opacity: 1;
     }
 }
-
 
 @keyframes gif-anim {
     0% {
@@ -913,4 +1105,3 @@ button:focus {
         background-position: 100%;
     }
 }
-
