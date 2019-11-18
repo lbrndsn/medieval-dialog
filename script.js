@@ -16,7 +16,8 @@ function enableBodyScrolling() {
     });
 
     $('body').css({
-        overflow: "auto"
+        overflowX: "auto",
+        overflowY: "hidden"
     });
 }
 
@@ -132,6 +133,7 @@ const dialogOneButtons = [
 const dialogTwoButtons = [
     createButton('Take the risk', function () {
         swordGrabbed = true;
+        $('.sword').fadeOut('fast');
         createDialog('dialogGrabSword', 2, [createButton('Well, that sucks')]);
     }),
     createButton("I'll skip")
@@ -140,6 +142,7 @@ const dialogTwoButtons = [
 const dialogThreeButtons = [
     createButton('Eat it', function () {
         mushroomEaten = true;
+        $('.mushroom').fadeOut('fast');
         createDialog('dialogEatMushroom', 3, [createButton('Trippy!')]);
     }),
     createButton('I hate mushrooms')
@@ -210,6 +213,13 @@ const dialogFiveButtons = [
     })
 ];
 
+const dialogSixButtons = [
+    createButton('Fight him!', function () {
+        fadePage();
+        goToPage("battle.html");
+    })
+];
+
 // Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
@@ -241,6 +251,12 @@ const dialogs = [
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
+    }
+    {
+        scrollPosition: 5000,
+        id: 'dialog6',
+        number: 6,
+        buttons: dialogSixButtons
     }
 ];
 

@@ -67,7 +67,10 @@ function attack() {
             $('.adventurer').addClass('cave');
             $('.adventurer.cave').addClass('walking');
         }, 2000);
-        goToPage("cave.html");
+        setTimeout(function () {
+            fadePage();
+            goToPage("cave.html");
+        }, 2000);
     }
 }
 
