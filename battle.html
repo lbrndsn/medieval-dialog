@@ -22,38 +22,6 @@
 
 <script src="script.js"></script>
 <script>
-    $("body").prepend("<div id='overlay'></div>");
-
-    $("body").prepend("<div class='game battle'></div>");
-
-
-    $(".game").append("<div class='adventurer-container'></div>");
-    $(".game.battle").append("<div class='enemy-container'></div>");
-
-    $(".game.battle").append("<div class='background-container'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg2'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg3'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg4'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg5'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg6'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg7'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg8'></div>");
-    $(".game.battle .background-container").append("<div class='forest-header-bg9'></div>");
-
-
-    $(".game.battle .adventurer-container").prepend("<div class='health-bar-container'></div>");
-    $(".game.battle .adventurer-container").append("<div class='adventurer battle'></div>");
-    $(".game.battle .adventurer-container").addClass("battle");
-
-    $(".enemy-container").prepend("<div class='health-bar-container'></div>");
-    $(".enemy-container").append("<div class='enemy battle'></div>");
-
-    $(".health-bar-container").prepend("<img src='img/health_bar_decoration.png' class='health-bar-outline'>")
-    $(".health-bar-container").append("<img src='img/health_bar.png' class='health-bar'>")
-    $('.enemy-container .health-bar-container .health-bar').attr('id', 'enemy-health-bar');
-    $('.adventurer-container .health-bar-container .health-bar').attr('id', 'adventurer-health-bar');
-
     $('.adventurer.battle').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
         $(this).removeClass("attack-punch");
         $(this).removeClass("scream");

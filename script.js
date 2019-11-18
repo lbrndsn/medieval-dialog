@@ -1,3 +1,155 @@
+$(document).ready(function () {
+    $("body").prepend("<div id='overlay'></div>");
+    $("body").prepend("<div class='game'></div>");
+    $(".game").append("<div class='adventurer-container'></div>");
+    $(".adventurer-container").append("<div class='adventurer'></div>");
+
+    if (window.location.pathname.match('index')) {
+        $(".game").addClass("kingdom");
+
+        $(".game.kingdom").prepend("<div class='intro-scroll'></div>");
+
+        $(".game.kingdom .intro-scroll").prepend("<div class='background-title'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-1'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-2'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-3'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-4'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-5'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-6'></div>");
+        $(".game.kingdom .intro-scroll .background-title").append("<img src='img/logo.png' id='logo'>");
+
+        $(".game.kingdom .intro-scroll").append("<div class='intro-text'></div>");
+        $(".game.kingdom .intro-scroll .intro-text").prepend("<p id='intro-text-p'></p>");
+
+        $(".game.kingdom").append("<div class='kingdom' id='game'></div>");
+
+        $(".game.kingdom .kingdom").prepend("<div class='king'></div>");
+        $(".game.kingdom .kingdom").prepend("<div id='dialog1'><p>So, what do you say? Will you help your kingdom one last time?</p></div>");
+        $(".game.kingdom .kingdom").prepend("<div class='floor'></div>");
+        $(".game.kingdom .kingdom").prepend("<div class='chandeliers'></div>");
+        $(".game.kingdom .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
+        $(".game.kingdom .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
+        $(".game.kingdom .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
+
+
+        var hero_anchor = $('.adventurer').offset().top - screen.height + 100;
+        var intro_anchor = $('.intro-scroll').height() - screen.height + 100;
+        var text_anchor = $('#intro-text-p').offset().top - screen.height + 100;
+
+        $(window).on('scroll.togame', function () {
+            if ($(window).scrollTop() >= intro_anchor) {
+                $(window).scrollTop(intro_anchor);
+            }
+            $("#yes").click(function () {
+                $("html").css("scroll-behavior", "smooth");
+                intro_anchor += intro_anchor
+            });
+        });
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > hero_anchor) {
+                $('.adventurer').addClass("walking");
+            }
+        });
+
+        $('.adventurer').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+            $(this).removeClass("walking");
+            $(this).addClass("idle");
+        });
+
+
+        $(window).on('scroll.text', function () {
+            if ($(window).scrollTop() > text_anchor) {
+                setTimeout(function () {
+                    typeText(text, 0);
+                }, 1000)
+                $(window).off('scroll.text');
+            }
+        });
+
+
+    }
+    if (window.location.pathname.match('main_game')) {
+        $(".game").addClass("main");
+
+        $(".adventurer-container").addClass("main-game");
+
+        $(".game.main").append("<div class='slide countryside'></div>");
+        $(".game.main").append("<div class='slide forest'></div>");
+        $(".game.main").append("<div class='transition-fence'></div>");
+        $(".slide.countryside").append("<div class='header-bg2'></div>");
+        $(".slide.countryside").append("<div class='header-bg3'></div>");
+        $(".slide.countryside").append("<div class='header-bg4'></div>");
+        $(".slide.countryside").append("<div class='boom'></div>");
+        $(".slide.countryside").append("<div class='header-bg5'></div>");
+        $(".slide.countryside").append("<div class='mushroom'></div>");
+
+        $(".slide.forest").append("<div class='header2-bg2'></div>");
+        $(".slide.forest").append("<div class='header2-bg3'></div>");
+        $(".slide.forest").append("<div class='header2-bg4'></div>");
+        $(".slide.forest").append("<div class='header2-bg5'></div>");
+        $(".slide.forest").append("<div class='header2-bg6'></div>");
+        $(".slide.forest").append("<div class='header2-bg8'></div>");
+        $(".slide.forest").append("<div class='sun'></div>");
+        $(".slide.forest").append("<div class='sword'></div>");
+        $(".slide.forest").append("<div class='enemy'></div>");
+        $(".slide.forest").append("<div class='header2-bg9'></div>");
+    }
+    if (window.location.pathname.match('battle')) {
+        $(".game").addClass("battle");
+
+        $(".game.battle").append("<div class='enemy-container'></div>");
+
+        $(".game.battle .adventurer-container").prepend("<div class='health-bar-container'></div>");
+        $(".game.battle .adventurer").addClass("battle");
+
+        $(".game.battle").append("<div class='background-container'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg2'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg3'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg4'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg5'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg6'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg7'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg8'></div>");
+        $(".game.battle .background-container").append("<div class='forest-header-bg9'></div>");
+
+        $(".enemy-container").prepend("<div class='health-bar-container'></div>");
+        $(".enemy-container").append("<div class='enemy battle'></div>");
+
+        $(".health-bar-container").prepend("<img src='img/health_bar_decoration.png' class='health-bar-outline'>")
+        $(".health-bar-container").append("<img src='img/health_bar.png' class='health-bar'>")
+        $('.enemy-container .health-bar-container .health-bar').attr('id', 'enemy-health-bar');
+        $('.adventurer-container .health-bar-container .health-bar').attr('id', 'adventurer-health-bar');
+    }
+    if (window.location.pathname.match('cave')) {
+        $(".game").addClass("cave");
+        $(".adventurer-container .adventurer").addClass("in-cave");
+
+        $(".game.cave").append("<div class='background-title'></div>");
+        $(".game.cave .background-title").append("<div class='layer-1'></div>");
+        $(".game.cave .background-title").append("<div class='layer-2'></div>");
+        $(".game.cave .background-title").append("<div class='layer-3'></div>");
+        $(".game.cave .background-title").append("<div class='layer-4'></div>");
+        $(".game.cave .background-title").append("<div class='layer-5'></div>");
+        $(".game.cave").append("<div class='transition'></div>");
+        $(".game.cave").append("<div class='cave'></div>");
+        $(".game.cave .cave").append("<div class='cave-bg'></div>");
+        $(".game.cave .cave").append("<div class='cave-floor'></div>");
+        $(".game.cave .cave").append("<div class='chest'></div>");
+        $(".game.cave .cave").append("<div id ='dialog5'><p>You got the gold back. Let's return it! Or... keep it for ourselves?</p></div>");
+        $('.adventurer.in-cave').addClass("walking");
+
+
+        $('.adventurer').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+            $(this).removeClass("walking");
+            $(this).addClass("morph");
+        });
+
+    }
+});
+
+
 // Disable scrolling when dialog is opened
 function disableBodyScrolling() {
     $('#disableScrollDiv').css({

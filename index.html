@@ -22,76 +22,10 @@
 </head>
 <body>
 <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
-
-<div id="overlay"></div>
-
-<div class="intro-scroll">
-    <div class="background-title">
-        <div class="layer-1"></div>
-        <div class="layer-2"></div>
-        <div class="layer-3"></div>
-        <div class="layer-4"></div>
-        <div class="layer-5"></div>
-        <div class="layer-6"></div>
-        <img src="img/logo.png" id="logo">
-    </div>
-    <div class="intro-text">
-        <p id="intro-text-p">
-        </p>
-
-    </div>
-</div>
-
 <script>
-    $('body').append("<div class='game kingdom' id='game'></div>");
-    $(".game").prepend("<div class='adventurer-container'></div>");
-    $(".game").prepend("<div class='kingdom'></div>");
-    $(".game .kingdom").prepend("<div class='king'></div>");
-    $(".game .kingdom").prepend("<div id='dialog1'><p>So, what do you say? Will you help your kingdom one last time?</p></div>");
-    $(".game .kingdom").prepend("<div class='floor'></div>");
-    $(".game .kingdom").prepend("<div class='chandeliers'></div>");
-    $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
-    $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
-    $(".game .kingdom .chandeliers").prepend("<div class='chandelier'><img src='img/chandelier.gif' alt=''/></div>");
-    $(".adventurer-container").append("<div class='adventurer in-kingdom'></div>");
-
 
     $(window).click(function () {
         $('#medieval-music')[0].play();
-    });
-
-    var hero_anchor = $('.adventurer').offset().top - screen.height + 100;
-    var intro_anchor = $('.intro-scroll').height() - screen.height + 100;
-    var text_anchor = $('#intro-text-p').offset().top - screen.height + 100;
-
-    $(window).on('scroll.togame', function () {
-        if ($(window).scrollTop() >= intro_anchor) {
-            $(window).scrollTop(intro_anchor);
-        }
-        $("#yes").click(function () {
-            $("html").css("scroll-behavior", "smooth");
-            intro_anchor += intro_anchor
-        });
-    });
-
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() > hero_anchor) {
-            $('.adventurer.in-kingdom').addClass("walking");
-        }
-    });
-
-    $(window).on('scroll.text', function () {
-        if ($(window).scrollTop() > text_anchor) {
-            setTimeout(function () {
-                typeText(text, 0);
-            }, 1000)
-            $(window).off('scroll.text');
-        }
-    });
-
-    $('.adventurer.in-kingdom').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
-        $(this).removeClass("walking");
-        $(this).addClass("idle");
     });
 
     //////
@@ -114,6 +48,9 @@
             typeText(text, iteration);
         }, 75);
     }
+
+
+
 
 </script>
 <script src="script.js"></script>
