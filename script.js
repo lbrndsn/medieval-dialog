@@ -251,7 +251,7 @@ const dialogs = [
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
-    }
+    },
     {
         scrollPosition: 5000,
         id: 'dialog6',
