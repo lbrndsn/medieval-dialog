@@ -437,6 +437,7 @@ img {
 }
 
 .adventurer.morph.evil {
+    position: absolute;
     width: calc(231px / 1.25);
     height: calc(252px / 1.25);
     transform: scaleX(-1);

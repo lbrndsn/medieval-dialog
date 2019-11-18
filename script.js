@@ -121,8 +121,23 @@ $(document).ready(function () {
         $(".health-bar-container").append("<img src='img/health_bar.png' class='health-bar'>")
         $('.enemy-container .health-bar-container .health-bar').attr('id', 'enemy-health-bar');
         $('.adventurer-container .health-bar-container .health-bar').attr('id', 'adventurer-health-bar');
+
+        $('.adventurer.battle').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+            $(this).removeClass("attack-punch");
+            $(this).removeClass("scream");
+            $(this).removeClass("attack");
+        });
+
+        $('.enemy.battle').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+            $(this).removeClass("attack");
+
+        });
+
     }
     if (window.location.pathname.match('cave')) {
+        $(function () {
+            $('html, body').animate({scrollTop: $(document).height() - $(window).height()}, 0);
+        });
         $(".game").addClass("cave");
         $(".adventurer-container .adventurer").addClass("in-cave");
 
@@ -174,7 +189,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 100;
+let healthBarEnemy = 0;
 
 let mushroomEaten = false;
 let swordGrabbed = false;

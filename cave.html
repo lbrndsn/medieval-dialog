@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cave</title>
+    <title>Cave - Friend or Foe</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
@@ -25,17 +24,7 @@
         $('.background-title .layer-4').css('top', +(scrollTop * 0.4));
         $('.background-title .layer-5').css('top', +(scrollTop * 0.7));
     });
-
-    function scrollBottom() {
-        window.scrollTo(0, 99999);
-    }
-
-    if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
-    else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
-
-
 </script>
-
 <script src="script.js"></script>
 </body>
 </html>
