@@ -280,7 +280,7 @@ function checkScrollPosition(heightOrWidth) {
                     }, 9000);
                 }
             } else {
-                if (heightOrWidth > dialog.scrollPosition - 50 && heightOrWidth < dialog.scrollPosition + 50 && dialogHasBeenOpened(dialog.number) === false) {
+                if (heightOrWidth > dialog.scrollPosition - 100 && heightOrWidth < dialog.scrollPosition + 100 && dialogHasBeenOpened(dialog.number) === false) {
                     createDialog(dialog.id, dialog.number, dialog.buttons);
                 }
             }
