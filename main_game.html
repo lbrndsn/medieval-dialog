@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Main Game</title>
-    <!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <title>Forest - Friend or Foe</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -43,17 +42,9 @@
             $('#medieval-music')[0].play();
         });
 
-        $(window).on('scroll', function () {
-            var scrollLeft = $(window).scrollLeft();
-            console.log(scrollLeft);
-            if (scrollLeft >= 630 && scrollLeft <= 675) {
-                console.log("SUCCESS");
-            }
-        });
-
         var lastTimeScrolled = null;
         var theElementYouCareAbout = document;
-        var intervalMilliSeconds = 20; // interval goes here
+        var intervalMilliSeconds = 20;
 
         theElementYouCareAbout.onscroll = function () {
             if (performance.now() - lastTimeScrolled > intervalMilliSeconds) {
@@ -77,38 +68,10 @@
     </script>
 
 </head>
+<audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
+
 <body class="main-game">
 <div id="overlay"></div>
-<div class="outer-wrapper">
-    <div class="wrapper">
-        <div class="adventurer-container main-game">
-            <div class="adventurer"></div>
-        </div>
-
-        <div class="slide one">
-            <div class="header-bg2"></div>
-            <div class="header-bg3"></div>
-            <div class="header-bg4"></div>
-            <div class="boom"></div>
-            <div class="header-bg5"></div>
-            <div class="mushroom"></div>
-        </div>
-        <div class="slide two">
-
-            <div class="header2-bg2"></div>
-            <div class="header2-bg3"></div>
-            <div class="header2-bg4"></div>
-            <div class="header2-bg5"></div>
-            <div class="header2-bg6"></div>
-            <div class="header2-bg8"></div>
-            <div class="sun"></div>
-            <div class="sword"></div>
-            <div class="enemy"></div>
-            <div class="header2-bg9"></div>
-        </div>
-        <div class="transition-fence"></div>
-    </div>
-</div>
 
 <div id="dialog2">
     <p>Wow, a magic sword... It could help us defeat the enemy! Or it could be cursed...</p>
@@ -129,9 +92,39 @@
     <p>I have Found the Enemy!</p>
 </div>
 
-<script src="script_main.js"></script>
-<!--<script src="jquery.scrollstop.min.js"></script>-->
-<audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
+<script src="script.js"></script>
+<script>
+    $("body").prepend("<div class='game'></div>");
+    $(".game").addClass("main");
+
+    $(".game").append("<div class='adventurer-container'></div>");
+    $(".adventurer-container").append("<div class='adventurer'></div>");
+    $(".adventurer-container").addClass("main-game");
+
+    $(".game.main").append("<div class='slide countryside'></div>");
+    $(".game.main").append("<div class='slide forest'></div>");
+    $(".game.main").append("<div class='transition-fence'></div>");
+    $(".slide.countryside").append("<div class='header-bg2'></div>");
+    $(".slide.countryside").append("<div class='header-bg3'></div>");
+    $(".slide.countryside").append("<div class='header-bg4'></div>");
+    $(".slide.countryside").append("<div class='boom'></div>");
+    $(".slide.countryside").append("<div class='header-bg5'></div>");
+    $(".slide.countryside").append("<div class='mushroom'></div>");
+
+    $(".slide.forest").append("<div class='header2-bg2'></div>");
+    $(".slide.forest").append("<div class='header2-bg3'></div>");
+    $(".slide.forest").append("<div class='header2-bg4'></div>");
+    $(".slide.forest").append("<div class='header2-bg5'></div>");
+    $(".slide.forest").append("<div class='header2-bg6'></div>");
+    $(".slide.forest").append("<div class='header2-bg8'></div>");
+    $(".slide.forest").append("<div class='sun'></div>");
+    $(".slide.forest").append("<div class='sword'></div>");
+    $(".slide.forest").append("<div class='enemy'></div>");
+    $(".slide.forest").append("<div class='header2-bg9'></div>");
+
+
+</script>
+
 </body>
 </html>
 

@@ -198,7 +198,7 @@ img {
     float: left;
 }
 
-.outer-wrapper {
+.game.main {
     height: 100vh;
     width: calc(1680px * 4);
     overflow: hidden;
@@ -215,13 +215,13 @@ img {
     transform: translateX(-50%);
 }
 
-.slide.one {
+.slide.countryside {
     background: #82b6ff;
     z-index: 3;
     overflow-x: hidden;
 }
 
-.two {
+.slide.forest {
     background: #82b6ff;
     z-index: 2;
 }
@@ -401,7 +401,7 @@ img {
     left: 115%;
 }
 
-.slide.two .enemy {
+.slide.forest .enemy {
     bottom: 90px;
     position: absolute;
     left: 210%;
@@ -632,6 +632,7 @@ button:focus {
     position: absolute;
     right: 0;
     bottom: 50px;
+    z-index: 9;
     width: auto;
 }
 
