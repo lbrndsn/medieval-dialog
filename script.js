@@ -223,7 +223,7 @@ const dialogSixButtons = [
 // Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
-        scrollPosition: 200,
+        scrollPosition: 1300,
         id: 'dialog1',
         number: 1,
         buttons: dialogOneButtons
