@@ -223,19 +223,19 @@ const dialogSixButtons = [
 // Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
-        scrollPosition: 1300,
+        scrollPosition: 200,
         id: 'dialog1',
         number: 1,
         buttons: dialogOneButtons
     },
     {
-        scrollPosition: 400,
+        scrollPosition: 3360,
         id: 'dialog2',
         number: 2,
         buttons: dialogTwoButtons
     },
     {
-        scrollPosition: 600,
+        scrollPosition: 440,
         id: 'dialog3',
         number: 3,
         buttons: dialogThreeButtons
@@ -247,7 +247,7 @@ const dialogs = [
         buttons: dialogFourButtons
     },
     {
-        scrollPosition: 1850,
+        scrollPosition: 2158.75,
         id: 'dialog5',
         number: 5,
         buttons: dialogFiveButtons
