@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Friend or foe</title>
+  <title>Friend or foe</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <script>
-        $(window).scroll(function () {
-            var scrollTop = $(this).scrollTop();
-            $('.intro-scroll .background-title img').css('margin-top', -(scrollTop * 0.2));
-            $('.intro-scroll .background-title .layer-1').css('bottom', -(scrollTop * 0.6));
-            $('.intro-scroll .background-title .layer-2').css('bottom', -(scrollTop * 0.4));
-            $('.intro-scroll .background-title .layer-3').css('bottom', -(scrollTop * 0.3));
-            $('.intro-scroll .background-title .layer-4').css('margin-bottom', -(scrollTop * 0.4));
-            $('.intro-scroll .background-title .layer-5').css('margin-bottom', -(scrollTop * 0.3));
-            $('.intro-scroll .background-title .layer-6').css('margin-bottom', -(scrollTop * 0.3));
-        });
-    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script>
+    $(window).scroll(function() {
+      var scrollTop = $(this).scrollTop();
+      $('.intro-scroll .background-title img').css('margin-top', -(scrollTop * 0.2));
+      $('.intro-scroll .background-title .layer-1').css('bottom', -(scrollTop * 0.6));
+      $('.intro-scroll .background-title .layer-2').css('bottom', -(scrollTop * 0.4));
+      $('.intro-scroll .background-title .layer-3').css('bottom', -(scrollTop * 0.3));
+      $('.intro-scroll .background-title .layer-4').css('margin-bottom', -(scrollTop * 0.4));
+      $('.intro-scroll .background-title .layer-5').css('margin-bottom', -(scrollTop * 0.3));
+      $('.intro-scroll .background-title .layer-6').css('margin-bottom', -(scrollTop * 0.3));
+    });
+  </script>
 </head>
-<body>
-<audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
-<script>
 
-    $(window).click(function () {
-        $('#medieval-music')[0].play();
+<body>
+  <audio src="audio/medieval-music.mp4" id="medieval-music" loop="loop"></audio>
+  <script>
+    $(window).click(function() {
+      $('#medieval-music')[0].play();
     });
 
     //////
@@ -34,25 +35,26 @@
 
 
     function typeText(text, iteration) {
-        if (iteration === text.length) {
-            setTimeout(function () {
-                $('#intro-text-p').append("</br>");
-                $('#intro-text-p').append("<a id='yes' href='#game'><button>yes</button></a>");
-                $('#intro-text-p').append("<a id='no' href='credits.html'><button id='no'>no</button></a>");
-            }, 75);
-            return;
-        }
-
-        setTimeout(function () {
-            $('#intro-text-p').text($('#intro-text-p').text() + text[iteration++]);
-            typeText(text, iteration);
+      if (iteration === text.length) {
+        setTimeout(function() {
+          $('#intro-text-p').append("</br>");
+          $('#intro-text-p').append("<a id='yes' href='#game'><button>yes</button></a>");
+          $('#intro-text-p').append("<a id='no' href='credits.html'><button id='no'>no</button></a>");
         }, 75);
+        return;
+      }
+
+      setTimeout(function() {
+        var letter = text[iteration++];
+        if (letter == " ") {
+          letter += text[iteration++];
+        }
+        $('#intro-text-p').text($('#intro-text-p').text() + letter);
+        typeText(text, iteration);
+      }, 75);
     }
-
-
-
-
-</script>
-<script src="script.js"></script>
+  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>

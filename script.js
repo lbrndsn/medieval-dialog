@@ -8,7 +8,6 @@ $(document).ready(function () {
         $(".game").addClass("kingdom");
 
         $(".game.kingdom").prepend("<div class='intro-scroll'></div>");
-
         $(".game.kingdom .intro-scroll").prepend("<div class='background-title'></div>");
         $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-1'></div>");
         $(".game.kingdom .intro-scroll .background-title").append("<div class='layer-2'></div>");
@@ -189,7 +188,7 @@ function enableBodyScrolling() {
 }
 
 let healthBarHero = 100;
-let healthBarEnemy = 0;
+let healthBarEnemy = 100;
 
 let mushroomEaten = false;
 let swordGrabbed = false;
@@ -387,7 +386,6 @@ const dialogSixButtons = [
     })
 ];
 
-// Deze moeten nog aangepast worden o.b.v. functies onderaan (handmatig)
 const dialogs = [
     {
         scrollPosition: 1300,
