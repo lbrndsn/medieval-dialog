@@ -1,2 +1,2 @@
 # medieval-dialog
-jQuery dialog screens voor medieval themed game
+jQuery medieval themed game
